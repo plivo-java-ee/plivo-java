@@ -1,7 +1,7 @@
 plivo-java: Initial porting of Java helper library for Plivo services
 =========================
 
-<center><img src="https://github.com/plivo-java-ee/plivo-java/master/docs/img/plivo-java.png" alt="plivo-java logo" height="500px"></center>
+<center><img src="https://raw.github.com/plivo-java-ee/plivo-java/master/docs/img/plivo-java.png" alt="plivo-java logo" height="500px"></center>
 -----------
 
 Initial porting of Java helper library for Plivo services. Junit test and more!
