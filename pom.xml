@@ -8,9 +8,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.plivo.ee</groupId>
 	<artifactId>plivo-java</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>7.0-SNAPSHOT</version>
 	<name>plivo-java</name>
-	<description>plivo-java  - Initial porting of Java helper library for Plivo services</description>
+	<description>plivo-java  -Java helper library for Plivo services using java ee 7</description>
 
 	<licenses>
 		<license>
@@ -23,7 +23,12 @@
 		<developer>
 			<id>fiorenzino</id>
 			<name>Fiorenzo Pizza</name>
-			<email>fiorenzino@gmail.com</email>
+			<email>fiorenzo.pizza@gmail.com</email>
+		</developer>
+		<developer>
+			<id>pisi79</id>
+			<name>Samuele Pasini</name>
+			<email>samuele.pasini@gmail.com</email>
 		</developer>
 	</developers>
 
@@ -38,9 +43,8 @@
 	</scm>
 
 	<properties>
-		<httpclient.version>4.2.1</httpclient.version>
-		<gson.version>2.2.2</gson.version>
-		<junit.version>4.8.1</junit.version>
+		<resteasy.version>3.0.6.Final</resteasy.version>
+		<junit.version>4.11</junit.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
@@ -67,8 +71,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.0.2</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>1.7</source>
+					<target>1.7</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
@@ -82,19 +86,34 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-			<version>${httpclient.version}</version>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>javax.ws.rs-api</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+		<!-- RESTEasy implementation of JAX-RS Client API -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-client</artifactId>
+			<version>${resteasy.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-multipart-provider</artifactId>
+			<version>${resteasy.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>${gson.version}</version>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jackson-provider</artifactId>
+			<version>${resteasy.version}</version>
+			<scope>test</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version> ${junit.version}</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
