@@ -47,6 +47,14 @@ public class CallApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public ApiResponse makeOutboundCall() throws Exception
+   {
+      return makeOutboundCall(get());
+   }
+
+   /*
     * Get All Call Details
     * 
     * The following API enables you to get information about all completed calls. The maximum number of results that can
@@ -63,6 +71,15 @@ public class CallApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   @SuppressWarnings("unchecked")
+   public ApiResponseList<Call> getAllCallDetails() throws Exception
+   {
+      return getAllCallDetails(get());
+   }
+
+   /*
     * Get Call Detail Record Of a Call
     * 
     * GET https://api.plivo.com/v1/Account/{auth_id}/Call/{call_uuid}/
@@ -72,6 +89,14 @@ public class CallApi extends AbstractApi
       return RequestUtils.submit(client,
                CallRequest.GET_RECORD.getTemplate(),
                parameters, Call.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public Call getCallDetailRecordOfCall() throws Exception
+   {
+      return getCallDetailRecordOfCall(get());
    }
 
    /*
@@ -90,6 +115,14 @@ public class CallApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public ApiResponseList<Call> getAllLiveCalls() throws Exception
+   {
+      return getAllLiveCalls(get());
+   }
+
+   /*
     * Get Details Of a Live Call
     * 
     * 
@@ -102,6 +135,14 @@ public class CallApi extends AbstractApi
       return RequestUtils.submit(client,
                CallRequest.GET_LIVE_CALL.getTemplate(),
                parameters, Call.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public Call getDetailsOfLiveCall() throws Exception
+   {
+      return getDetailsOfLiveCall(get());
    }
 
    /*
@@ -136,6 +177,14 @@ public class CallApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public boolean hangupSpecificCall() throws Exception
+   {
+      return hangupSpecificCall(get());
+   }
+
+   /*
     * Hangup a Call Request
     * 
     * The following API enables you to hangup a call using the request_uuidreturned by the Outbound Call API.
@@ -166,6 +215,14 @@ public class CallApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public boolean hangupCallRequest() throws Exception
+   {
+      return hangupCallRequest(get());
+   }
+
+   /*
     * Transfer a Call
     * 
     * This API enables an in-progress or active call to a different URL and fetch and execute XML from a new URL. If the
@@ -180,6 +237,14 @@ public class CallApi extends AbstractApi
       return RequestUtils.submit(client,
                CallRequest.TRANSFER.getTemplate(),
                parameters, ApiResponse.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public ApiResponse transferCall() throws Exception
+   {
+      return transferCall(get());
    }
 
    /*
@@ -200,6 +265,14 @@ public class CallApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public ApiResponse sendDigitsDtmf() throws Exception
+   {
+      return sendDigitsDtmf(get());
+   }
+
+   /*
     * Play a Music File
     * 
     * The Play API lets to play a mp3 or a wav file on a call. Its usually used to play a notification on a live call.
@@ -213,6 +286,14 @@ public class CallApi extends AbstractApi
       return RequestUtils.submit(client,
                CallRequest.PLAY_MP3.getTemplate(),
                parameters, ApiResponse.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public ApiResponse playMusicFile() throws Exception
+   {
+      return playMusicFile(get());
    }
 
    /*
@@ -245,6 +326,15 @@ public class CallApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public boolean stopPlayMusicFile() throws Exception
+   {
+
+      return stopPlayMusicFile(get());
+   }
+
+   /*
     * Record a Call
     * 
     * The Record API lets start recording a live call at any time during the call. It also lets you stop the recording.
@@ -260,6 +350,14 @@ public class CallApi extends AbstractApi
       return RequestUtils.submit(client,
                CallRequest.RECORD_CALL.getTemplate(),
                parameters, ApiResponse.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public ApiResponse recordCall() throws Exception
+   {
+      return recordCall(get());
    }
 
    /*
@@ -291,6 +389,14 @@ public class CallApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public boolean stopRecordCall() throws Exception
+   {
+      return stopRecordCall(get());
+   }
+
+   /*
     * 
     * Play Text During a Call
     * 
@@ -305,6 +411,14 @@ public class CallApi extends AbstractApi
       return RequestUtils.submit(client,
                CallRequest.SPEAK_TXT.getTemplate(),
                parameters, ApiResponse.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public ApiResponse playTextDuringCall() throws Exception
+   {
+      return playTextDuringCall(get());
    }
 
    /*
@@ -333,6 +447,14 @@ public class CallApi extends AbstractApi
          if (response != null)
             response.close();
       }
+   }
+
+   /*
+    * FLUENT API
+    */
+   public boolean stopPlayingTextDuringCall() throws Exception
+   {
+      return stopPlayingTextDuringCall(get());
    }
 
 }

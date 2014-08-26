@@ -44,6 +44,31 @@ public class CallApiTest extends AbstractTest
    }
 
    @Test
+   public void testMakeOutboundCallFluently()
+   {
+      try
+      {
+         callApi.put(GlobalConstant.AUTH_ID, auth_id)
+                  .put(GlobalConstant.FROM, number)
+                  .put(GlobalConstant.TO, "+393922274929")
+                  .put(GlobalConstant.ANSWER_URL, "https://we.getdat.es/xml/answer.xml")
+                  .put(GlobalConstant.ANSWER_METHOD, "GET")
+                  .put(GlobalConstant.HANGUP_URL, "https://we.getdat.es/xml/hangup.xml")
+                  .put(GlobalConstant.HANGUP_METHOD, "GET")
+                  .put(GlobalConstant.FALLBACK_URL, "https://we.getdat.es/xml/response.xml")
+                  .put(GlobalConstant.FALLBACK_METHOD, "GET");
+         ApiResponse result = callApi.makeOutboundCall();
+         Assert.assertNotNull(result);
+         System.out.println(result);
+      }
+      catch (Exception e)
+      {
+         e.printStackTrace();
+         Assert.fail(e.getMessage());
+      }
+   }
+
+   @Test
    public void testMakeHangupCall()
    {
       try
