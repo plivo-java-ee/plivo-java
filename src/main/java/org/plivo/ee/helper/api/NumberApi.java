@@ -48,6 +48,14 @@ public class NumberApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public ApiResponseList<Conference> getListAllRentedNumbers() throws Exception
+   {
+      return getListAllRentedNumbers(get());
+   }
+
+   /*
     * Get Details of a Rented Number
     * 
     * This API lets you get details of a single number on your Plivo account.
@@ -59,6 +67,14 @@ public class NumberApi extends AbstractApi
       return RequestUtils.submit(client,
                NumberRequest.GET.getTemplate(),
                parameters, Number.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public Number getDetailsOfRentedNumber() throws Exception
+   {
+      return getDetailsOfRentedNumber(get());
    }
 
    /*
@@ -76,6 +92,14 @@ public class NumberApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public ApiResponse addNumber() throws Exception
+   {
+      return addNumber(get());
+   }
+
+   /*
     * Edit a Number
     * 
     * This API enables you to change the application and subaccount associated with a number you rented.
@@ -87,6 +111,14 @@ public class NumberApi extends AbstractApi
       return RequestUtils.submit(client,
                NumberRequest.MODIFY.getTemplate(),
                parameters, ApiResponse.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public ApiResponse editNumber() throws Exception
+   {
+      return editNumber(get());
    }
 
    /*
@@ -121,6 +153,14 @@ public class NumberApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public boolean unrentNumber() throws Exception
+   {
+      return unrentNumber(get());
+   }
+
+   /*
     * Search for New Numbers
     * 
     * 
@@ -131,11 +171,20 @@ public class NumberApi extends AbstractApi
     * GET https://api.plivo.com/v1/Account/{auth_id}/AvailableNumberGroup/
     */
 
+   @SuppressWarnings("unchecked")
    public ApiResponseList<Number> searchForNewNumbers(Map<String, String> parameters) throws Exception
    {
       return RequestUtils.submit(client,
                NumberRequest.SEARCH_FOR_RENT.getTemplate(),
                parameters, ApiResponseList.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public ApiResponseList<Number> searchForNewNumbers() throws Exception
+   {
+      return searchForNewNumbers(get());
    }
 
    /*
@@ -153,6 +202,14 @@ public class NumberApi extends AbstractApi
       return RequestUtils.submit(client,
                NumberRequest.RENT.getTemplate(),
                parameters, ApiResponse.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public ApiResponse rentNumbers() throws Exception
+   {
+      return rentNumbers(get());
    }
 
 }

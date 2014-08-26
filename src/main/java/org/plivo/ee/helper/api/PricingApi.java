@@ -41,4 +41,12 @@ public class PricingApi extends AbstractApi
                parameters, Price.class);
    }
 
+   /*
+    * FLUENT API
+    */
+   public Price getPricingForCountry() throws Exception
+   {
+      return getPricingForCountry(get());
+   }
+
 }

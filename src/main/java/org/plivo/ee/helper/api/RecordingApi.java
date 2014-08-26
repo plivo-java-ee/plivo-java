@@ -44,6 +44,14 @@ public class RecordingApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public ApiResponseList<Recording> listAllRecordings() throws Exception
+   {
+      return listAllRecordings(get());
+   }
+
+   /*
     * List a Specific Recording
     * 
     * GET https://api.plivo.com/v1/Account/{auth_id}/Recording/{recording_id}/
@@ -54,6 +62,14 @@ public class RecordingApi extends AbstractApi
       return RequestUtils.submit(client,
                RecordingRequest.GET.getTemplate(),
                parameters, Recording.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public Recording getSpecificRecording() throws Exception
+   {
+      return getSpecificRecording(get());
    }
 
    /*
@@ -83,6 +99,14 @@ public class RecordingApi extends AbstractApi
          if (response != null)
             response.close();
       }
+   }
+
+   /*
+    * FLUENT API
+    */
+   public boolean deleteSpecificRecording() throws Exception
+   {
+      return deleteSpecificRecording(get());
    }
 
 }

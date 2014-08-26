@@ -46,6 +46,14 @@ public class ConferenceApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public ApiResponse getAllConferences() throws Exception
+   {
+      return getAllConferences(get());
+   }
+
+   /*
     * Details of a Conference
     * 
     * Retrieves the details of a particular conference.
@@ -57,6 +65,14 @@ public class ConferenceApi extends AbstractApi
       return RequestUtils.submit(client,
                ConferenceRequest.GET.getTemplate(),
                parameters, Conference.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public Conference getDetailsConference() throws Exception
+   {
+      return getDetailsConference(get());
    }
 
    /*
@@ -75,6 +91,14 @@ public class ConferenceApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public ApiResponse hangupAllConferences() throws Exception
+   {
+      return hangupAllConferences(get());
+   }
+
+   /*
     * Hangup a Particular Conference
     * 
     * 
@@ -88,6 +112,14 @@ public class ConferenceApi extends AbstractApi
       return RequestUtils.submit(client,
                ConferenceRequest.HANGUP.getTemplate(),
                parameters, ApiResponse.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public ApiResponse hangupParticularConference() throws Exception
+   {
+      return hangupParticularConference(get());
    }
 
    /*
@@ -109,6 +141,14 @@ public class ConferenceApi extends AbstractApi
       return RequestUtils.submit(client,
                ConferenceRequest.HANGUP_MEMBER.getTemplate(),
                parameters, ApiResponse.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public ApiResponse hangupMember() throws Exception
+   {
+      return hangupMember(get());
    }
 
    /*
@@ -141,6 +181,14 @@ public class ConferenceApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public ApiResponse kickMember() throws Exception
+   {
+      return kickMember(get());
+   }
+
+   /*
     * Mute Member
     * 
     * This API lets you mute members in a conference. When a member is muted, audio from their device will be muted and
@@ -159,6 +207,14 @@ public class ConferenceApi extends AbstractApi
       return RequestUtils.submit(client,
                ConferenceRequest.MUTE_MEMBER.getTemplate(),
                parameters, ApiResponse.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public ApiResponse muteMember() throws Exception
+   {
+      return muteMember(get());
    }
 
    /*
@@ -199,6 +255,14 @@ public class ConferenceApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public boolean unmuteMember() throws Exception
+   {
+      return unmuteMember(get());
+   }
+
+   /*
     * Play Sound to Member
     * 
     * This API lets you play a mp3 or a wav file to a member in the conference.
@@ -217,6 +281,14 @@ public class ConferenceApi extends AbstractApi
       return RequestUtils.submit(client,
                ConferenceRequest.PLAY_SOUND_MEMBER.getTemplate(),
                parameters, ApiResponse.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public ApiResponse playSoundToMember() throws Exception
+   {
+      return playSoundToMember(get());
    }
 
    /*
@@ -240,6 +312,14 @@ public class ConferenceApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public ApiResponse stopPlayngSoundToMember() throws Exception
+   {
+      return stopPlayngSoundToMember(get());
+   }
+
+   /*
     * Play Text to Member
     * 
     * This API will play text to a member in a conference.
@@ -260,6 +340,14 @@ public class ConferenceApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public ApiResponse playTextToMember() throws Exception
+   {
+      return playTextToMember(get());
+   }
+
+   /*
     * Stop Playing Text to Member
     * 
     * This API will stop playing text to a member in a conference which was initiated by the Play Text API
@@ -271,6 +359,14 @@ public class ConferenceApi extends AbstractApi
       return RequestUtils.submit(client,
                ConferenceRequest.STOP_PLAY_TEXT_MEMBER.getTemplate(),
                parameters, ApiResponse.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public ApiResponse stopPlayTextToMember() throws Exception
+   {
+      return stopPlayTextToMember(get());
    }
 
    /*
@@ -287,6 +383,14 @@ public class ConferenceApi extends AbstractApi
       return RequestUtils.submit(client,
                ConferenceRequest.MAKE_DEAF_MEMBER.getTemplate(),
                parameters, ApiResponse.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public ApiResponse makeMemberDeaf() throws Exception
+   {
+      return makeMemberDeaf(get());
    }
 
    /*
@@ -321,6 +425,14 @@ public class ConferenceApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public boolean enableHearingForMember() throws Exception
+   {
+      return enableHearingForMember(get());
+   }
+
+   /*
     * Start Recording a Conference
     * 
     * 
@@ -334,6 +446,14 @@ public class ConferenceApi extends AbstractApi
       return RequestUtils.submit(client,
                ConferenceRequest.START_RECORD_CONFERENCE.getTemplate(),
                parameters, ApiResponse.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public ApiResponse startRecordingConference() throws Exception
+   {
+      return startRecordingConference(get());
    }
 
    /*
@@ -367,5 +487,13 @@ public class ConferenceApi extends AbstractApi
          if (response != null)
             response.close();
       }
+   }
+
+   /*
+    * FLUENT API
+    */
+   public boolean stopRecordingConference() throws Exception
+   {
+      return stopRecordingConference(get());
    }
 }

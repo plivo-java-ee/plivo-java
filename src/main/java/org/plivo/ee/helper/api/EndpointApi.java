@@ -47,6 +47,14 @@ public class EndpointApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public ApiResponse createEndpoint() throws Exception
+   {
+      return createEndpoint(get());
+   }
+
+   /*
     * Get Details of a Single Endpoint
     * 
     * 
@@ -59,6 +67,14 @@ public class EndpointApi extends AbstractApi
       return RequestUtils.submit(client,
                EndpointRequest.GET.getTemplate(),
                parameters, Conference.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public Conference getDetailsSingleEndpoint() throws Exception
+   {
+      return getDetailsSingleEndpoint(get());
    }
 
    /*
@@ -79,6 +95,14 @@ public class EndpointApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public ApiResponseList<Conference> getDetailsAllEndpoints() throws Exception
+   {
+      return getDetailsAllEndpoints(get());
+   }
+
+   /*
     * Modify an Endpoint
     * 
     * 
@@ -92,6 +116,14 @@ public class EndpointApi extends AbstractApi
       return RequestUtils.submit(client,
                EndpointRequest.MODIFY.getTemplate(),
                parameters, ApiResponse.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public ApiResponse modifyEndpoint() throws Exception
+   {
+      return modifyEndpoint(get());
    }
 
    /*
@@ -123,6 +155,14 @@ public class EndpointApi extends AbstractApi
          if (response != null)
             response.close();
       }
+   }
+
+   /*
+    * FLUENT API
+    */
+   public boolean deleteEndpoint() throws Exception
+   {
+      return deleteEndpoint(get());
    }
 
 }

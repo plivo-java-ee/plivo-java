@@ -38,6 +38,15 @@ public class MessageApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public ApiResponse sendMessage()
+            throws Exception
+   {
+      return sendMessage(get());
+   }
+
+   /*
     * Get Details of All Messages
     * 
     * GET https://api.plivo.com/v1/Account/{auth_id}/Message/
@@ -52,6 +61,15 @@ public class MessageApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public ApiResponseList<Message> getDetailsAllMessages()
+            throws Exception
+   {
+      return getDetailsAllMessages(get());
+   }
+
+   /*
     * Get Details of a Single Message
     * 
     * GET https://api.plivo.com/v1/Account/{auth_id}/Message/{message_uuid}/
@@ -62,6 +80,15 @@ public class MessageApi extends AbstractApi
       return RequestUtils.submit(client,
                MessageRequest.GET.getTemplate(),
                parameters, Message.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public Message getMessageDetails()
+            throws Exception
+   {
+      return getMessageDetails(get());
    }
 
 }

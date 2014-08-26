@@ -40,6 +40,14 @@ public class AccountApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public Account getAccountDetails() throws Exception
+   {
+      return getAccountDetails(get());
+   }
+
+   /*
     * Modify an Account
     * 
     * If you would like to modify your account details, you could do so with this API. You can make changes to the name,
@@ -54,6 +62,14 @@ public class AccountApi extends AbstractApi
       return RequestUtils.submit(client,
                AccountRequest.UPDATE.getTemplate(), parameters,
                ApiResponse.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public ApiResponse modifyAccount() throws Exception
+   {
+      return modifyAccount(get());
    }
 
    /*
@@ -74,6 +90,14 @@ public class AccountApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public ApiResponse createSubaccount() throws Exception
+   {
+      return createSubaccount(get());
+   }
+
+   /*
     * Modify a Subaccount
     * 
     * If you would like to modify your subaccount, you could do so with this API. You can make changes to the name of
@@ -87,6 +111,14 @@ public class AccountApi extends AbstractApi
       return RequestUtils.submit(client,
                SubaccountRequest.UPDATE.getTemplate(),
                parameters, ApiResponse.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public ApiResponse modifySubaccount() throws Exception
+   {
+      return modifySubaccount(get());
    }
 
    /*
@@ -108,6 +140,14 @@ public class AccountApi extends AbstractApi
    }
 
    /*
+    * FLUENT API
+    */
+   public Subaccount getDetailsSubaccount() throws Exception
+   {
+      return getDetailsSubaccount(get());
+   }
+
+   /*
     * Get Details of all Subaccounts
     * 
     * You can get details of all subaccounts associated with your main Plivo account. We return a list of all
@@ -123,6 +163,14 @@ public class AccountApi extends AbstractApi
       return RequestUtils.submit(client,
                SubaccountRequest.LIST.getTemplate(),
                parameters, ApiResponseList.class);
+   }
+
+   /*
+    * FLUENT API
+    */
+   public ApiResponseList<Subaccount> getDetailsAllSubaccounts() throws Exception
+   {
+      return getDetailsAllSubaccounts(get());
    }
 
    /*
@@ -160,40 +208,12 @@ public class AccountApi extends AbstractApi
 
    }
 
-   // FLUENTLY METHODS
-   public ApiResponse createSubaccount() throws Exception
-   {
-      return createSubaccount(get());
-   }
-
+   /*
+    * FLUENT API
+    */
    public boolean deleteSubAccount() throws Exception
    {
       return deleteSubAccount(get());
-   }
-
-   public Account getAccountDetails() throws Exception
-   {
-      return getAccountDetails(get());
-   }
-
-   public ApiResponseList<Subaccount> getDetailsAllSubaccounts() throws Exception
-   {
-      return getDetailsAllSubaccounts(get());
-   }
-
-   public Subaccount getDetailsSubaccount() throws Exception
-   {
-      return getDetailsSubaccount(get());
-   }
-
-   public ApiResponse modifyAccount() throws Exception
-   {
-      return modifyAccount(get());
-   }
-
-   public ApiResponse modifySubaccount() throws Exception
-   {
-      return modifySubaccount(get());
    }
 
 }
