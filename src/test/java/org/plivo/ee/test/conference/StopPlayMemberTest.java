@@ -7,7 +7,6 @@ import org.plivo.ee.helper.api.response.response.GenericResponse;
 import org.plivo.ee.helper.exception.PlivoException;
 import org.plivo.ee.test.common.AbstractTest;
 
-
 public class StopPlayMemberTest extends AbstractTest {
 
 	@Test
@@ -20,7 +19,7 @@ public class StopPlayMemberTest extends AbstractTest {
 		try {
 			GenericResponse response = getRestApi().stopPlayMember(
 					getParameters());
-			Assert.assertNotNull(response.apiId);
+			Assert.assertNotNull(response.getApiId());
 		} catch (PlivoException plivoException) {
 
 			plivoException.printStackTrace();

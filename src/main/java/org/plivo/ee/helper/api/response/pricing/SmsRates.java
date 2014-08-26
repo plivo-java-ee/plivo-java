@@ -1,18 +1,37 @@
 package org.plivo.ee.helper.api.response.pricing;
 
+import java.io.Serializable;
+
 import org.plivo.ee.helper.api.response.pricing.InboundSmsPricing;
 import org.plivo.ee.helper.api.response.pricing.OutboundSmsPricing;
 
 import com.google.gson.annotations.SerializedName;
 
-public class SmsRates {
+public class SmsRates implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	@SerializedName("inbound")
-	public InboundSmsPricing inboundSms ;
-	
+	private InboundSmsPricing inboundSms;
+
 	@SerializedName("outbound")
-	public OutboundSmsPricing outboundSms ;
-	
+	private OutboundSmsPricing outboundSms;
+
 	public SmsRates() {
-		// empty
+	}
+
+	public InboundSmsPricing getInboundSms() {
+		return inboundSms;
+	}
+
+	public void setInboundSms(InboundSmsPricing inboundSms) {
+		this.inboundSms = inboundSms;
+	}
+
+	public OutboundSmsPricing getOutboundSms() {
+		return outboundSms;
+	}
+
+	public void setOutboundSms(OutboundSmsPricing outboundSms) {
+		this.outboundSms = outboundSms;
 	}
 }

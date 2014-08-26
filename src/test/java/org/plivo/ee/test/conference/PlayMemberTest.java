@@ -7,7 +7,6 @@ import org.plivo.ee.helper.api.response.response.GenericResponse;
 import org.plivo.ee.helper.exception.PlivoException;
 import org.plivo.ee.test.common.AbstractTest;
 
-
 public class PlayMemberTest extends AbstractTest {
 
 	@Test
@@ -21,7 +20,7 @@ public class PlayMemberTest extends AbstractTest {
 		getParameters().put("url", "http:/mystorageserver/music.mp3");
 		try {
 			GenericResponse response = getRestApi().playMember(getParameters());
-			Assert.assertNotNull(response.apiId);
+			Assert.assertNotNull(response.getApiId());
 		} catch (PlivoException plivoException) {
 
 			plivoException.printStackTrace();

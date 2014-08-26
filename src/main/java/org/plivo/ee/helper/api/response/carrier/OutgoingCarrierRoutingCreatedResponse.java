@@ -1,25 +1,64 @@
 package org.plivo.ee.helper.api.response.carrier;
 
-import org.plivo.ee.helper.api.response.carrier.OutgoingCarrierRoutingErrorMessage;
+import java.io.Serializable;
 
 import com.google.gson.annotations.SerializedName;
 
+public class OutgoingCarrierRoutingCreatedResponse implements Serializable {
 
-public class OutgoingCarrierRoutingCreatedResponse {
+	private static final long serialVersionUID = 1L;
 	@SerializedName("server_code")
-	public Integer serverCode ;
+	private Integer serverCode;
 
 	@SerializedName("api_id")
-	public String apiId ;
+	private String apiId;
 
-    public Object routes ;
-    
-	public String message ;
+	private Object routes;
 
-	public OutgoingCarrierRoutingErrorMessage error ;
-    
-    public OutgoingCarrierRoutingCreatedResponse() {
-        // empty
-    }
+	private String message;
+
+	private OutgoingCarrierRoutingErrorMessage error;
+
+	private OutgoingCarrierRoutingCreatedResponse() {
+	}
+
+	public Integer getServerCode() {
+		return serverCode;
+	}
+
+	public void setServerCode(Integer serverCode) {
+		this.serverCode = serverCode;
+	}
+
+	public String getApiId() {
+		return apiId;
+	}
+
+	public void setApiId(String apiId) {
+		this.apiId = apiId;
+	}
+
+	public Object getRoutes() {
+		return routes;
+	}
+
+	public void setRoutes(Object routes) {
+		this.routes = routes;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public OutgoingCarrierRoutingErrorMessage getError() {
+		return error;
+	}
+
+	public void setError(OutgoingCarrierRoutingErrorMessage error) {
+		this.error = error;
+	}
 }
-

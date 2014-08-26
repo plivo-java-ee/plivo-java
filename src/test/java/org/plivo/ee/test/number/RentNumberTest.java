@@ -7,7 +7,6 @@ import org.plivo.ee.helper.api.response.number.NumberResponse;
 import org.plivo.ee.helper.exception.PlivoException;
 import org.plivo.ee.test.common.AbstractTest;
 
-
 public class RentNumberTest extends AbstractTest {
 
 	@Test
@@ -29,9 +28,10 @@ public class RentNumberTest extends AbstractTest {
 
 		try {
 			numbers = getRestApi().rentNumbers(getParameters());
-			Assert.assertNotNull(numbers.numberStatusList.get(0).number);
-			System.out.println(numbers.numberStatusList.get(0).status);
-			System.out.println(numbers.numberStatusList.get(1));
+			Assert.assertNotNull(numbers.getNumberStatusList().get(0)
+					.getNumber());
+			System.out.println(numbers.getNumberStatusList().get(0).status);
+			System.out.println(numbers.getNumberStatusList().get(1));
 		} catch (PlivoException plivoException) {
 			System.out.println(plivoException.getMessage());
 		}

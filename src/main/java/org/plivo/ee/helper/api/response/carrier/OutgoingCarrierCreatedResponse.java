@@ -1,26 +1,65 @@
 package org.plivo.ee.helper.api.response.carrier;
 
-import org.plivo.ee.helper.api.response.carrier.OutgoingCarrierErrorMessage;
+import java.io.Serializable;
 
 import com.google.gson.annotations.SerializedName;
 
+public class OutgoingCarrierCreatedResponse implements Serializable {
 
-public class OutgoingCarrierCreatedResponse {
+	private static final long serialVersionUID = 1L;
 	@SerializedName("server_code")
-	public Integer serverCode ;
+	private Integer serverCode;
 
 	@SerializedName("api_id")
-	public String apiId ;
+	private String apiId;
 
-    @SerializedName("carrier_id")
-    public Object carrierId ;
-    
-	public String message ;
+	@SerializedName("carrier_id")
+	private Object carrierId;
 
-	public OutgoingCarrierErrorMessage error ;
-    
-    public OutgoingCarrierCreatedResponse() {
-        // empty
-    }
+	private String message;
+
+	private OutgoingCarrierErrorMessage error;
+
+	public OutgoingCarrierCreatedResponse() {
+	}
+
+	public Integer getServerCode() {
+		return serverCode;
+	}
+
+	public void setServerCode(Integer serverCode) {
+		this.serverCode = serverCode;
+	}
+
+	public String getApiId() {
+		return apiId;
+	}
+
+	public void setApiId(String apiId) {
+		this.apiId = apiId;
+	}
+
+	public Object getCarrierId() {
+		return carrierId;
+	}
+
+	public void setCarrierId(Object carrierId) {
+		this.carrierId = carrierId;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public OutgoingCarrierErrorMessage getError() {
+		return error;
+	}
+
+	public void setError(OutgoingCarrierErrorMessage error) {
+		this.error = error;
+	}
 }
-

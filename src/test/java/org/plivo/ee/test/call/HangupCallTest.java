@@ -15,7 +15,7 @@ public class HangupCallTest extends AbstractTest {
 		getParameters().put("call_uuid", "6653422-91b6-4716-9fad-9463daaeeec2");
 		try {
 			GenericResponse response = getRestApi().hangupCall(getParameters());
-			Assert.assertNotNull(response.apiId);
+			Assert.assertNotNull(response.getApiId());
 		} catch (PlivoException plivoException) {
 			plivoException.printStackTrace();
 		}

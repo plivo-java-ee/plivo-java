@@ -16,8 +16,8 @@ public class GetAllConferencesTest extends AbstractTest {
 		try {
 			LiveConferenceFactory liveConferenceList = getRestApi()
 					.getLiveConferences();
-			Assert.assertNotNull(liveConferenceList.apiId);
-			for (String conferenceName : liveConferenceList.conferences) {
+			Assert.assertNotNull(liveConferenceList.getApiId());
+			for (String conferenceName : liveConferenceList.getConferences()) {
 				Assert.assertNotNull(conferenceName);
 			}
 		} catch (PlivoException e) {

@@ -22,7 +22,7 @@ public class MakeMemberUndeafTest extends AbstractTest {
 		try {
 			GenericResponse response = getRestApi().undeafMember(
 					getParameters());
-			Assert.assertNotNull(response.apiId);
+			Assert.assertNotNull(response.getApiId());
 		} catch (PlivoException plivoException) {
 
 			plivoException.printStackTrace();

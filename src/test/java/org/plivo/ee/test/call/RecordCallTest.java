@@ -23,7 +23,7 @@ public class RecordCallTest extends AbstractTest {
 		 */
 		try {
 			Record response = getRestApi().record(getParameters());
-			Assert.assertNotNull(response.url);
+			Assert.assertNotNull(response.getUrl());
 		} catch (PlivoException plivoException) {
 			plivoException.printStackTrace();
 		}

@@ -29,7 +29,7 @@ public class TransferCallTest extends AbstractTest {
 		try {
 			GenericResponse response = getRestApi().transferCall(
 					getParameters());
-			Assert.assertNotNull(response.apiId);
+			Assert.assertNotNull(response.getApiId());
 		} catch (PlivoException plivoException) {
 			plivoException.printStackTrace();
 		}

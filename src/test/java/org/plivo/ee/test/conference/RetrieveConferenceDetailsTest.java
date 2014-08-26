@@ -7,7 +7,6 @@ import org.plivo.ee.helper.api.response.conference.Conference;
 import org.plivo.ee.helper.exception.PlivoException;
 import org.plivo.ee.test.common.AbstractTest;
 
-
 public class RetrieveConferenceDetailsTest extends AbstractTest {
 
 	@Test
@@ -16,7 +15,7 @@ public class RetrieveConferenceDetailsTest extends AbstractTest {
 		try {
 			Conference response = getRestApi().getLiveConference(
 					getParameters());
-			Assert.assertNotNull(response.conferenceMemberCount);
+			Assert.assertNotNull(response.getConferenceMemberCount());
 		} catch (PlivoException e) {
 			e.printStackTrace();
 		}

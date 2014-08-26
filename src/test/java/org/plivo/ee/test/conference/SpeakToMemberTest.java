@@ -33,7 +33,7 @@ public class SpeakToMemberTest extends AbstractTest {
 		try {
 			GenericResponse response = getRestApi()
 					.speakMember(getParameters());
-			Assert.assertNotNull(response.apiId);
+			Assert.assertNotNull(response.getApiId());
 		} catch (PlivoException plivoException) {
 
 			plivoException.printStackTrace();

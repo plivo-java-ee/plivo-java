@@ -1,24 +1,66 @@
 package org.plivo.ee.helper.api.response.number;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-public class NumberGroupFactory {
-	@SerializedName("server_code")
-	public Integer serverCode ;
+public class NumberGroupFactory implements Serializable {
 
-	public NumberMeta meta ;
-	
+	private static final long serialVersionUID = 1L;
+	@SerializedName("server_code")
+	private Integer serverCode;
+
+	private NumberMeta meta;
+
 	@SerializedName("objects")
-	public List<NumberGroup> groupList ;
-	
+	private List<NumberGroup> groupList;
+
 	@SerializedName("api_id")
-	public String apiId ;
-	
-	public String error ;
-	
+	private String apiId;
+
+	private String error;
+
 	public NumberGroupFactory() {
-		// empty
+	}
+
+	public Integer getServerCode() {
+		return serverCode;
+	}
+
+	public void setServerCode(Integer serverCode) {
+		this.serverCode = serverCode;
+	}
+
+	public NumberMeta getMeta() {
+		return meta;
+	}
+
+	public void setMeta(NumberMeta meta) {
+		this.meta = meta;
+	}
+
+	public List<NumberGroup> getGroupList() {
+		return groupList;
+	}
+
+	public void setGroupList(List<NumberGroup> groupList) {
+		this.groupList = groupList;
+	}
+
+	public String getApiId() {
+		return apiId;
+	}
+
+	public void setApiId(String apiId) {
+		this.apiId = apiId;
+	}
+
+	public String getError() {
+		return error;
+	}
+
+	public void setError(String error) {
+		this.error = error;
 	}
 }

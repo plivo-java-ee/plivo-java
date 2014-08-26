@@ -4,7 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Map.Entry;
 
 import org.apache.http.HttpResponse;
@@ -39,7 +40,7 @@ public class HttpUtils {
 	}
 
 	public static String request(String method, String resource,
-			LinkedHashMap<String, String> parameters, String host, int port,
+			Map<String, String> parameters, String host, int port,
 			String authId, String authToken, String baseURI)
 			throws PlivoException {
 
@@ -117,8 +118,8 @@ public class HttpUtils {
 		return responseString.toString();
 	}
 
-	public static String getKeyValue(LinkedHashMap<String, String> params,
-			String key) throws PlivoException {
+	public static String getKeyValue(Map<String, String> params, String key)
+			throws PlivoException {
 		String value = "";
 		if (params.containsKey(key)) {
 			value = params.get(key);
@@ -130,4 +131,23 @@ public class HttpUtils {
 		return value;
 	}
 
+	public static void main(String[] args) throws IOException {
+		Gson gson = new Gson();
+		Map<String, String> parameters = new HashMap<String, String>();
+		parameters.put("nome", "valore");
+		StringEntity se = new StringEntity(gson.toJson(parameters), "utf-8");
+		System.out.println(fromStream(se.getContent()));
+	}
+
+	public static String fromStream(InputStream in) throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+		StringBuilder out = new StringBuilder();
+		String newLine = System.getProperty("line.separator");
+		String line;
+		while ((line = reader.readLine()) != null) {
+			out.append(line);
+			out.append(newLine);
+		}
+		return out.toString();
+	}
 }

@@ -1,6 +1,7 @@
 package org.plivo.ee.helper.api.client.simple;
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.plivo.ee.helper.api.common.CommonRestApi;
 import org.plivo.ee.helper.api.response.application.Application;
@@ -39,38 +40,34 @@ public class ApplicationRestAPI extends CommonRestApi {
 	// Application
 	public ApplicationFactory getApplications() throws PlivoException {
 		return this.gson.fromJson(
-				request("GET", "/Application/",
-						new LinkedHashMap<String, String>()),
+				request("GET", "/Application/", new HashMap<String, String>()),
 				ApplicationFactory.class);
 	}
 
-	public Application getApplication(LinkedHashMap<String, String> parameters)
+	public Application getApplication(Map<String, String> parameters)
 			throws PlivoException {
 		String app_id = HttpUtils.getKeyValue(parameters, "app_id");
-		return this.gson
-				.fromJson(
-						request("GET",
-								String.format("/Application/%s/", app_id),
-								new LinkedHashMap<String, String>()),
-						Application.class);
+		return this.gson.fromJson(
+				request("GET", String.format("/Application/%s/", app_id),
+						new HashMap<String, String>()), Application.class);
 	}
 
-	public GenericResponse createApplication(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse createApplication(Map<String, String> parameters)
+			throws PlivoException {
 		return this.gson.fromJson(request("POST", "/Application/", parameters),
 				GenericResponse.class);
 	}
 
-	public GenericResponse editApplication(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse editApplication(Map<String, String> parameters)
+			throws PlivoException {
 		String app_id = HttpUtils.getKeyValue(parameters, "app_id");
 		return this.gson.fromJson(
 				request("POST", String.format("/Application/%s/", app_id),
 						parameters), GenericResponse.class);
 	}
 
-	public GenericResponse deleteApplication(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse deleteApplication(Map<String, String> parameters)
+			throws PlivoException {
 		String app_id = HttpUtils.getKeyValue(parameters, "app_id");
 		return this.gson.fromJson(
 				request("DELETE", String.format("/Application/%s/", app_id),

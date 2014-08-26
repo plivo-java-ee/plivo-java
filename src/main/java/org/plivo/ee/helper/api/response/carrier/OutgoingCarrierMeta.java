@@ -1,21 +1,64 @@
 package org.plivo.ee.helper.api.response.carrier;
 
+import java.io.Serializable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class OutgoingCarrierMeta {
-    public String previous ;
+public class OutgoingCarrierMeta implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+    private String previous ;
 
     @SerializedName("total_count")
-    public Integer totalCount ;
+    private Integer totalCount ;
     
-    public Integer offset ;
+    private Integer offset ;
     
-    public Integer limit ;
+    private Integer limit ;
     
-    public String next ;
+    private String next ;
     
     public OutgoingCarrierMeta() {
-        // empty
     }
+
+	public String getPrevious() {
+		return previous;
+	}
+
+	public void setPrevious(String previous) {
+		this.previous = previous;
+	}
+
+	public Integer getTotalCount() {
+		return totalCount;
+	}
+
+	public void setTotalCount(Integer totalCount) {
+		this.totalCount = totalCount;
+	}
+
+	public Integer getOffset() {
+		return offset;
+	}
+
+	public void setOffset(Integer offset) {
+		this.offset = offset;
+	}
+
+	public Integer getLimit() {
+		return limit;
+	}
+
+	public void setLimit(Integer limit) {
+		this.limit = limit;
+	}
+
+	public String getNext() {
+		return next;
+	}
+
+	public void setNext(String next) {
+		this.next = next;
+	}
 
 }

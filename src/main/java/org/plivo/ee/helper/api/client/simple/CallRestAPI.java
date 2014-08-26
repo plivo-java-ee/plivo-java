@@ -1,6 +1,7 @@
 package org.plivo.ee.helper.api.client.simple;
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.plivo.ee.helper.api.common.CommonRestApi;
 import org.plivo.ee.helper.api.response.call.CDR;
@@ -42,28 +43,27 @@ public class CallRestAPI extends CommonRestApi {
 	}
 
 	// Call
-	public CDRFactory getCDRs(LinkedHashMap<String, String> parameters)
+	public CDRFactory getCDRs(Map<String, String> parameters)
 			throws PlivoException {
 		return this.gson.fromJson(request("GET", "/Call/", parameters),
 				CDRFactory.class);
 	}
 
-	public CDR getCDR(LinkedHashMap<String, String> parameters)
-			throws PlivoException {
+	public CDR getCDR(Map<String, String> parameters) throws PlivoException {
 		String record_id = HttpUtils.getKeyValue(parameters, "record_id");
 		return this.gson.fromJson(
 				request("GET", String.format("/Call/%s/", record_id),
-						new LinkedHashMap<String, String>()), CDR.class);
+						new HashMap<String, String>()), CDR.class);
 	}
 
 	public LiveCallFactory getLiveCalls() throws PlivoException {
-		LinkedHashMap<String, String> parameters = new LinkedHashMap<String, String>();
+		Map<String, String> parameters = new HashMap<String, String>();
 		parameters.put("status", "live");
 		return this.gson.fromJson(request("GET", "/Call/", parameters),
 				LiveCallFactory.class);
 	}
 
-	public LiveCall getLiveCall(LinkedHashMap<String, String> parameters)
+	public LiveCall getLiveCall(Map<String, String> parameters)
 			throws PlivoException {
 		String call_uuid = HttpUtils.getKeyValue(parameters, "call_uuid");
 		parameters.put("status", "live");
@@ -72,30 +72,26 @@ public class CallRestAPI extends CommonRestApi {
 						parameters), LiveCall.class);
 	}
 
-	public Call makeCall(LinkedHashMap<String, String> parameters)
-			throws PlivoException {
+	public Call makeCall(Map<String, String> parameters) throws PlivoException {
 		return this.gson.fromJson(request("POST", "/Call/", parameters),
 				Call.class);
 	}
 
 	public GenericResponse hangupAllCalls() throws PlivoException {
-		return this.gson
-				.fromJson(
-						request("DELETE", "/Call/",
-								new LinkedHashMap<String, String>()),
-						GenericResponse.class);
+		return this.gson.fromJson(
+				request("DELETE", "/Call/", new HashMap<String, String>()),
+				GenericResponse.class);
 	}
 
-	public GenericResponse hangupCall(LinkedHashMap<String, String> parameters)
+	public GenericResponse hangupCall(Map<String, String> parameters)
 			throws PlivoException {
 		String call_uuid = HttpUtils.getKeyValue(parameters, "call_uuid");
 		return this.gson.fromJson(
 				request("DELETE", String.format("/Call/%s/", call_uuid),
-						new LinkedHashMap<String, String>()),
-				GenericResponse.class);
+						new HashMap<String, String>()), GenericResponse.class);
 	}
 
-	public GenericResponse transferCall(LinkedHashMap<String, String> parameters)
+	public GenericResponse transferCall(Map<String, String> parameters)
 			throws PlivoException {
 		String call_uuid = HttpUtils.getKeyValue(parameters, "call_uuid");
 		return this.gson.fromJson(
@@ -103,24 +99,22 @@ public class CallRestAPI extends CommonRestApi {
 						parameters), GenericResponse.class);
 	}
 
-	public Record record(LinkedHashMap<String, String> parameters)
-			throws PlivoException {
+	public Record record(Map<String, String> parameters) throws PlivoException {
 		String call_uuid = HttpUtils.getKeyValue(parameters, "call_uuid");
 		return this.gson.fromJson(
 				request("POST", String.format("/Call/%s/Record/", call_uuid),
 						parameters), Record.class);
 	}
 
-	public GenericResponse stopRecord(LinkedHashMap<String, String> parameters)
+	public GenericResponse stopRecord(Map<String, String> parameters)
 			throws PlivoException {
 		String call_uuid = HttpUtils.getKeyValue(parameters, "call_uuid");
 		return this.gson.fromJson(
 				request("DELETE", String.format("/Call/%s/Record/", call_uuid),
-						new LinkedHashMap<String, String>()),
-				GenericResponse.class);
+						new HashMap<String, String>()), GenericResponse.class);
 	}
 
-	public GenericResponse play(LinkedHashMap<String, String> parameters)
+	public GenericResponse play(Map<String, String> parameters)
 			throws PlivoException {
 		String call_uuid = HttpUtils.getKeyValue(parameters, "call_uuid");
 		return this.gson.fromJson(
@@ -128,16 +122,15 @@ public class CallRestAPI extends CommonRestApi {
 						parameters), GenericResponse.class);
 	}
 
-	public GenericResponse stopPlay(LinkedHashMap<String, String> parameters)
+	public GenericResponse stopPlay(Map<String, String> parameters)
 			throws PlivoException {
 		String call_uuid = HttpUtils.getKeyValue(parameters, "call_uuid");
 		return this.gson.fromJson(
 				request("DELETE", String.format("/Call/%s/Play/", call_uuid),
-						new LinkedHashMap<String, String>()),
-				GenericResponse.class);
+						new HashMap<String, String>()), GenericResponse.class);
 	}
 
-	public GenericResponse speak(LinkedHashMap<String, String> parameters)
+	public GenericResponse speak(Map<String, String> parameters)
 			throws PlivoException {
 		String text = HtmlEntity.convert(HttpUtils.getKeyValue(parameters,
 				"text"));
@@ -148,16 +141,15 @@ public class CallRestAPI extends CommonRestApi {
 						parameters), GenericResponse.class);
 	}
 
-	public GenericResponse stopSpeak(LinkedHashMap<String, String> parameters)
+	public GenericResponse stopSpeak(Map<String, String> parameters)
 			throws PlivoException {
 		String call_uuid = HttpUtils.getKeyValue(parameters, "call_uuid");
 		return this.gson.fromJson(
 				request("DELETE", String.format("/Call/%s/Speak/", call_uuid),
-						new LinkedHashMap<String, String>()),
-				GenericResponse.class);
+						new HashMap<String, String>()), GenericResponse.class);
 	}
 
-	public GenericResponse sendDigits(LinkedHashMap<String, String> parameters)
+	public GenericResponse sendDigits(Map<String, String> parameters)
 			throws PlivoException {
 		String call_uuid = HttpUtils.getKeyValue(parameters, "call_uuid");
 		return this.gson.fromJson(

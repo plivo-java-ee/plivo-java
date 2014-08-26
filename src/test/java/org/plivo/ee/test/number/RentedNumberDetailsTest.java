@@ -21,7 +21,7 @@ public class RentedNumberDetailsTest extends AbstractTest {
 		try {
 			GenericResponse numberDetails = getRestApi().rentNumber(
 					getParameters());
-			Assert.assertNotNull(numberDetails.apiId);
+			Assert.assertNotNull(numberDetails.getApiId());
 		} catch (PlivoException plivoException) {
 			plivoException.printStackTrace();
 		}

@@ -1,7 +1,7 @@
 package org.plivo.ee.helper.api;
 
 //Exceptions
-import java.util.LinkedHashMap;
+import java.util.Map;
 
 import org.plivo.ee.helper.api.client.simple.AccountRestAPI;
 import org.plivo.ee.helper.api.client.simple.ApplicationRestAPI;
@@ -46,7 +46,6 @@ import org.plivo.ee.helper.api.response.pricing.PlivoPricing;
 import org.plivo.ee.helper.api.response.response.GenericResponse;
 import org.plivo.ee.helper.api.response.response.Record;
 import org.plivo.ee.helper.exception.PlivoException;
-
 
 public class RestAPI {
 	private static final String LATEST_PLIVO_VERSION = "v1";
@@ -104,7 +103,7 @@ public class RestAPI {
 		return new AccountRestAPI(authId, authToken, version).getAccount();
 	}
 
-	public GenericResponse editAccount(LinkedHashMap<String, String> parameters)
+	public GenericResponse editAccount(Map<String, String> parameters)
 			throws PlivoException {
 		return new AccountRestAPI(authId, authToken, version)
 				.editAccount(parameters);
@@ -114,26 +113,26 @@ public class RestAPI {
 		return new AccountRestAPI(authId, authToken, version).getSubaccounts();
 	}
 
-	public SubAccount getSubaccount(LinkedHashMap<String, String> parameters)
+	public SubAccount getSubaccount(Map<String, String> parameters)
 			throws PlivoException {
 		return new AccountRestAPI(authId, authToken, version)
 				.getSubaccount(parameters);
 	}
 
-	public GenericResponse createSubaccount(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse createSubaccount(Map<String, String> parameters)
+			throws PlivoException {
 		return new AccountRestAPI(authId, authToken)
 				.createSubaccount(parameters);
 	}
 
-	public GenericResponse editSubaccount(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse editSubaccount(Map<String, String> parameters)
+			throws PlivoException {
 		return new AccountRestAPI(authId, authToken, version)
 				.editSubaccount(parameters);
 	}
 
-	public GenericResponse deleteSubaccount(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse deleteSubaccount(Map<String, String> parameters)
+			throws PlivoException {
 		return new AccountRestAPI(authId, authToken)
 				.deleteSubaccount(parameters);
 	}
@@ -144,54 +143,51 @@ public class RestAPI {
 				.getApplications();
 	}
 
-	public Application getApplication(LinkedHashMap<String, String> parameters)
+	public Application getApplication(Map<String, String> parameters)
 			throws PlivoException {
 		return new ApplicationRestAPI(authId, authToken)
 				.getApplication(parameters);
 	}
 
-	public GenericResponse createApplication(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse createApplication(Map<String, String> parameters)
+			throws PlivoException {
 		return new ApplicationRestAPI(authId, authToken)
 				.createApplication(parameters);
 	}
 
-	public GenericResponse editApplication(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse editApplication(Map<String, String> parameters)
+			throws PlivoException {
 		return new ApplicationRestAPI(authId, authToken)
 				.editApplication(parameters);
 	}
 
-	public GenericResponse deleteApplication(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse deleteApplication(Map<String, String> parameters)
+			throws PlivoException {
 		return new ApplicationRestAPI(authId, authToken)
 				.deleteApplication(parameters);
 	}
 
 	// Call
-	public CDRFactory getCDRs(LinkedHashMap<String, String> parameters)
+	public CDRFactory getCDRs(Map<String, String> parameters)
 			throws PlivoException {
 		return new CallRestAPI(authId, authToken, version).getCDRs(parameters);
 	}
 
-	public CDR getCDR(LinkedHashMap<String, String> parameters)
-			throws PlivoException {
+	public CDR getCDR(Map<String, String> parameters) throws PlivoException {
 		return new CallRestAPI(authId, authToken, version).getCDR(parameters);
 	}
 
 	public LiveCallFactory getLiveCalls() throws PlivoException {
-		LinkedHashMap<String, String> parameters = new LinkedHashMap<String, String>();
 		return new CallRestAPI(authId, authToken, version).getLiveCalls();
 	}
 
-	public LiveCall getLiveCall(LinkedHashMap<String, String> parameters)
+	public LiveCall getLiveCall(Map<String, String> parameters)
 			throws PlivoException {
 		return new CallRestAPI(authId, authToken, version)
 				.getLiveCall(parameters);
 	}
 
-	public Call makeCall(LinkedHashMap<String, String> parameters)
-			throws PlivoException {
+	public Call makeCall(Map<String, String> parameters) throws PlivoException {
 		return new CallRestAPI(authId, authToken, version).makeCall(parameters);
 	}
 
@@ -199,51 +195,50 @@ public class RestAPI {
 		return new CallRestAPI(authId, authToken, version).hangupAllCalls();
 	}
 
-	public GenericResponse hangupCall(LinkedHashMap<String, String> parameters)
+	public GenericResponse hangupCall(Map<String, String> parameters)
 			throws PlivoException {
 		return new CallRestAPI(authId, authToken, version)
 				.hangupCall(parameters);
 	}
 
-	public GenericResponse transferCall(LinkedHashMap<String, String> parameters)
+	public GenericResponse transferCall(Map<String, String> parameters)
 			throws PlivoException {
 		return new CallRestAPI(authId, authToken, version)
 				.transferCall(parameters);
 	}
 
-	public Record record(LinkedHashMap<String, String> parameters)
-			throws PlivoException {
+	public Record record(Map<String, String> parameters) throws PlivoException {
 		return new CallRestAPI(authId, authToken, version).record(parameters);
 	}
 
-	public GenericResponse stopRecord(LinkedHashMap<String, String> parameters)
+	public GenericResponse stopRecord(Map<String, String> parameters)
 			throws PlivoException {
 		return new CallRestAPI(authId, authToken, version)
 				.stopRecord(parameters);
 	}
 
-	public GenericResponse play(LinkedHashMap<String, String> parameters)
+	public GenericResponse play(Map<String, String> parameters)
 			throws PlivoException {
 		return new CallRestAPI(authId, authToken, version).play(parameters);
 	}
 
-	public GenericResponse stopPlay(LinkedHashMap<String, String> parameters)
+	public GenericResponse stopPlay(Map<String, String> parameters)
 			throws PlivoException {
 		return new CallRestAPI(authId, authToken, version).stopPlay(parameters);
 	}
 
-	public GenericResponse speak(LinkedHashMap<String, String> parameters)
+	public GenericResponse speak(Map<String, String> parameters)
 			throws PlivoException {
 		return new CallRestAPI(authId, authToken, version).speak(parameters);
 	}
 
-	public GenericResponse stopSpeak(LinkedHashMap<String, String> parameters)
+	public GenericResponse stopSpeak(Map<String, String> parameters)
 			throws PlivoException {
 		return new CallRestAPI(authId, authToken, version)
 				.stopSpeak(parameters);
 	}
 
-	public GenericResponse sendDigits(LinkedHashMap<String, String> parameters)
+	public GenericResponse sendDigits(Map<String, String> parameters)
 			throws PlivoException {
 		return new CallRestAPI(authId, authToken, version)
 				.sendDigits(parameters);
@@ -260,111 +255,111 @@ public class RestAPI {
 				.hangupAllConferences();
 	}
 
-	public Conference getLiveConference(LinkedHashMap<String, String> parameters)
+	public Conference getLiveConference(Map<String, String> parameters)
 			throws PlivoException {
 		return new ConferenceRestAPI(authId, authToken)
 				.getLiveConference(parameters);
 	}
 
-	public GenericResponse hangupConference(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse hangupConference(Map<String, String> parameters)
+			throws PlivoException {
 		return new ConferenceRestAPI(authId, authToken)
 				.hangupConference(parameters);
 	}
 
-	public GenericResponse hangupMember(LinkedHashMap<String, String> parameters)
+	public GenericResponse hangupMember(Map<String, String> parameters)
 			throws PlivoException {
 		return new ConferenceRestAPI(authId, authToken)
 				.hangupMember(parameters);
 	}
 
-	public GenericResponse playMember(LinkedHashMap<String, String> parameters)
+	public GenericResponse playMember(Map<String, String> parameters)
 			throws PlivoException {
 		return new ConferenceRestAPI(authId, authToken, version)
 				.playMember(parameters);
 	}
 
-	public GenericResponse stopPlayMember(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse stopPlayMember(Map<String, String> parameters)
+			throws PlivoException {
 		return new ConferenceRestAPI(authId, authToken)
 				.stopPlayMember(parameters);
 	}
 
-	public GenericResponse speakMember(LinkedHashMap<String, String> parameters)
+	public GenericResponse speakMember(Map<String, String> parameters)
 			throws PlivoException {
 		return new ConferenceRestAPI(authId, authToken, version)
 				.speakMember(parameters);
 	}
 
-	public GenericResponse deafMember(LinkedHashMap<String, String> parameters)
+	public GenericResponse deafMember(Map<String, String> parameters)
 			throws PlivoException {
 		return new ConferenceRestAPI(authId, authToken, version)
 				.deafMember(parameters);
 	}
 
-	public GenericResponse undeafMember(LinkedHashMap<String, String> parameters)
+	public GenericResponse undeafMember(Map<String, String> parameters)
 			throws PlivoException {
 		return new ConferenceRestAPI(authId, authToken)
 				.undeafMember(parameters);
 	}
 
-	public GenericResponse muteMember(LinkedHashMap<String, String> parameters)
+	public GenericResponse muteMember(Map<String, String> parameters)
 			throws PlivoException {
 		return new ConferenceRestAPI(authId, authToken, version)
 				.muteMember(parameters);
 	}
 
-	public GenericResponse unmuteMember(LinkedHashMap<String, String> parameters)
+	public GenericResponse unmuteMember(Map<String, String> parameters)
 			throws PlivoException {
 		return new ConferenceRestAPI(authId, authToken)
 				.unmuteMember(parameters);
 	}
 
-	public GenericResponse kickMember(LinkedHashMap<String, String> parameters)
+	public GenericResponse kickMember(Map<String, String> parameters)
 			throws PlivoException {
 		return new ConferenceRestAPI(authId, authToken, version)
 				.kickMember(parameters);
 	}
 
-	public Record recordConference(LinkedHashMap<String, String> parameters)
+	public Record recordConference(Map<String, String> parameters)
 			throws PlivoException {
 		return new ConferenceRestAPI(authId, authToken)
 				.recordConference(parameters);
 	}
 
-	public GenericResponse stopRecordConference(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse stopRecordConference(Map<String, String> parameters)
+			throws PlivoException {
 		return new ConferenceRestAPI(authId, authToken)
 				.stopRecordConference(parameters);
 	}
 
 	// Endpoint
-	public EndpointFactory getEndpoints(LinkedHashMap<String, String> parameters)
+	public EndpointFactory getEndpoints(Map<String, String> parameters)
 			throws PlivoException {
 		return new EndpointRestAPI(authId, authToken, version)
 				.getEndpoints(parameters);
 	}
 
-	public GenericResponse createEndpoint(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse createEndpoint(Map<String, String> parameters)
+			throws PlivoException {
 		return new EndpointRestAPI(authId, authToken)
 				.createEndpoint(parameters);
 	}
 
-	public Endpoint getEndpoint(LinkedHashMap<String, String> parameters)
+	public Endpoint getEndpoint(Map<String, String> parameters)
 			throws PlivoException {
 		return new EndpointRestAPI(authId, authToken, version)
 				.getEndpoint(parameters);
 	}
 
-	public GenericResponse editEndpoint(LinkedHashMap<String, String> parameters)
+	public GenericResponse editEndpoint(Map<String, String> parameters)
 			throws PlivoException {
 		return new EndpointRestAPI(authId, authToken)
 				.createEndpoint(parameters);
 	}
 
-	public GenericResponse deleteEndpoint(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse deleteEndpoint(Map<String, String> parameters)
+			throws PlivoException {
 		return new EndpointRestAPI(authId, authToken)
 				.deleteEndpoint(parameters);
 	}
@@ -374,63 +369,63 @@ public class RestAPI {
 		return new NumberRestAPI(authId, authToken, version).getNumbers();
 	}
 
-	public NumberSearchFactory getNumbers(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public NumberSearchFactory getNumbers(Map<String, String> parameters)
+			throws PlivoException {
 		return new NumberRestAPI(authId, authToken, version).getNumbers();
 	}
 
 	@Deprecated
-	public NumberSearchFactory searchNumbers(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public NumberSearchFactory searchNumbers(Map<String, String> parameters)
+			throws PlivoException {
 		return new NumberRestAPI(authId, authToken, version)
 				.searchNumbers(parameters);
 	}
 
 	@Deprecated
-	public GenericResponse rentNumber(LinkedHashMap<String, String> parameters)
+	public GenericResponse rentNumber(Map<String, String> parameters)
 			throws PlivoException {
 		return new NumberRestAPI(authId, authToken, version)
 				.rentNumber(parameters);
 	}
 
-	public NumberGroupFactory searchNumberGroups(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public NumberGroupFactory searchNumberGroups(Map<String, String> parameters)
+			throws PlivoException {
 		return new NumberRestAPI(authId, authToken)
 				.searchNumberGroups(parameters);
 	}
 
-	public NumberResponse rentNumbers(LinkedHashMap<String, String> parameters)
+	public NumberResponse rentNumbers(Map<String, String> parameters)
 			throws PlivoException {
 		return new NumberRestAPI(authId, authToken, version)
 				.rentNumbers(parameters);
 	}
 
-	public GenericResponse unRentNumber(LinkedHashMap<String, String> parameters)
+	public GenericResponse unRentNumber(Map<String, String> parameters)
 			throws PlivoException {
 		return new NumberRestAPI(authId, authToken, version)
 				.unRentNumber(parameters);
 	}
 
-	public GenericResponse linkApplicationNumber(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse linkApplicationNumber(Map<String, String> parameters)
+			throws PlivoException {
 		return new NumberRestAPI(authId, authToken)
 				.linkApplicationNumber(parameters);
 	}
 
 	public GenericResponse unlinkApplicationNumber(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+			Map<String, String> parameters) throws PlivoException {
 		return new NumberRestAPI(authId, authToken)
 				.unlinkApplicationNumber(parameters);
 	}
 
 	// Message
-	public MessageResponse sendMessage(LinkedHashMap<String, String> parameters)
+	public MessageResponse sendMessage(Map<String, String> parameters)
 			throws PlivoException {
 		return new MessageRestAPI(authId, authToken, version)
 				.sendMessage(parameters);
 	}
 
-	public Message getMessage(LinkedHashMap<String, String> parameters)
+	public Message getMessage(Map<String, String> parameters)
 			throws PlivoException {
 		return new MessageRestAPI(authId, authToken, version)
 				.getMessage(parameters);
@@ -440,7 +435,7 @@ public class RestAPI {
 		return new MessageRestAPI(authId, authToken, version).getMessages();
 	}
 
-	public MessageFactory getMessages(LinkedHashMap<String, String> parameters)
+	public MessageFactory getMessages(Map<String, String> parameters)
 			throws PlivoException {
 		return new MessageRestAPI(authId, authToken, version)
 				.getMessages(parameters);
@@ -448,94 +443,94 @@ public class RestAPI {
 
 	// Incoming Carrier
 	public IncomingCarrierFactory getIncomingCarriers(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+			Map<String, String> parameters) throws PlivoException {
 		return new IncomingCarrierRestAPI().getIncomingCarriers(parameters);
 	}
 
-	public IncomingCarrier getIncomingCarrier(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public IncomingCarrier getIncomingCarrier(Map<String, String> parameters)
+			throws PlivoException {
 		return new IncomingCarrierRestAPI().getIncomingCarrier(parameters);
 	}
 
-	public GenericResponse addIncomingCarrier(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse addIncomingCarrier(Map<String, String> parameters)
+			throws PlivoException {
 		return new IncomingCarrierRestAPI().addIncomingCarrier(parameters);
 	}
 
-	public GenericResponse editIncomingCarrier(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse editIncomingCarrier(Map<String, String> parameters)
+			throws PlivoException {
 		return new IncomingCarrierRestAPI().editIncomingCarrier(parameters);
 	}
 
-	public GenericResponse dropIncomingCarrier(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse dropIncomingCarrier(Map<String, String> parameters)
+			throws PlivoException {
 		return new IncomingCarrierRestAPI().dropIncomingCarrier(parameters);
 	}
 
 	// Outgoing Carrier
 	public OutgoingCarrierFactory getOutgoingCarriers(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+			Map<String, String> parameters) throws PlivoException {
 		return new OutgoingCarrierRestAPI(authId, authToken)
 				.getOutgoingCarriers(parameters);
 	}
 
-	public OutgoingCarrier getOutgoingCarrier(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public OutgoingCarrier getOutgoingCarrier(Map<String, String> parameters)
+			throws PlivoException {
 		return new OutgoingCarrierRestAPI(authId, authToken)
 				.getOutgoingCarrier(parameters);
 	}
 
 	public OutgoingCarrierCreatedResponse addOutgoingCarrier(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+			Map<String, String> parameters) throws PlivoException {
 		return new OutgoingCarrierRestAPI(authId, authToken)
 				.addOutgoingCarrier(parameters);
 	}
 
-	public GenericResponse editOutgoingCarrier(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse editOutgoingCarrier(Map<String, String> parameters)
+			throws PlivoException {
 		return new OutgoingCarrierRestAPI(authId, authToken)
 				.editOutgoingCarrier(parameters);
 	}
 
-	public GenericResponse dropOutgoingCarrier(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse dropOutgoingCarrier(Map<String, String> parameters)
+			throws PlivoException {
 		return new OutgoingCarrierRestAPI(authId, authToken)
 				.dropOutgoingCarrier(parameters);
 	}
 
 	// Outgoing Carrier Routing
 	public OutgoingCarrierRoutingFactory getOutgoingCarrierRoutings(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+			Map<String, String> parameters) throws PlivoException {
 		return new OutgoingCarrierRoutingRestAPI()
 				.getOutgoingCarrierRoutings(parameters);
 	}
 
 	public OutgoingCarrierRouting getOutgoingCarrierRouting(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+			Map<String, String> parameters) throws PlivoException {
 		return new OutgoingCarrierRoutingRestAPI()
 				.getOutgoingCarrierRouting(parameters);
 	}
 
 	public OutgoingCarrierRoutingCreatedResponse addOutgoingCarrierRouting(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+			Map<String, String> parameters) throws PlivoException {
 		return new OutgoingCarrierRoutingRestAPI()
 				.addOutgoingCarrierRouting(parameters);
 	}
 
 	public GenericResponse editOutgoingCarrierRouting(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+			Map<String, String> parameters) throws PlivoException {
 		return new OutgoingCarrierRoutingRestAPI()
 				.editOutgoingCarrierRouting(parameters);
 	}
 
 	public GenericResponse dropOutgoingCarrierRouting(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+			Map<String, String> parameters) throws PlivoException {
 		return new OutgoingCarrierRoutingRestAPI()
 				.dropOutgoingCarrierRouting(parameters);
 	}
 
 	// Pricing
-	public PlivoPricing getPricing(LinkedHashMap<String, String> parameters)
+	public PlivoPricing getPricing(Map<String, String> parameters)
 			throws PlivoException {
 		return new PricingRestAPI(authId, authToken, version)
 				.getPricing(parameters);

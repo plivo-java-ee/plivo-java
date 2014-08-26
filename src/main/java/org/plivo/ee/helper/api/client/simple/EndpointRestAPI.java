@@ -1,6 +1,7 @@
 package org.plivo.ee.helper.api.client.simple;
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.plivo.ee.helper.api.common.CommonRestApi;
 import org.plivo.ee.helper.api.response.endpoint.Endpoint;
@@ -37,27 +38,27 @@ public class EndpointRestAPI extends CommonRestApi {
 	}
 
 	// Endpoint
-	public EndpointFactory getEndpoints(LinkedHashMap<String, String> parameters)
+	public EndpointFactory getEndpoints(Map<String, String> parameters)
 			throws PlivoException {
 		return this.gson.fromJson(request("GET", "/Endpoint/", parameters),
 				EndpointFactory.class);
 	}
 
-	public GenericResponse createEndpoint(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse createEndpoint(Map<String, String> parameters)
+			throws PlivoException {
 		return this.gson.fromJson(request("POST", "/Endpoint/", parameters),
 				GenericResponse.class);
 	}
 
-	public Endpoint getEndpoint(LinkedHashMap<String, String> parameters)
+	public Endpoint getEndpoint(Map<String, String> parameters)
 			throws PlivoException {
 		String endpoint_id = HttpUtils.getKeyValue(parameters, "endpoint_id");
 		return this.gson.fromJson(
 				request("GET", String.format("/Endpoint/%s/", endpoint_id),
-						new LinkedHashMap<String, String>()), Endpoint.class);
+						new HashMap<String, String>()), Endpoint.class);
 	}
 
-	public GenericResponse editEndpoint(LinkedHashMap<String, String> parameters)
+	public GenericResponse editEndpoint(Map<String, String> parameters)
 			throws PlivoException {
 		String endpoint_id = HttpUtils.getKeyValue(parameters, "endpoint_id");
 		return this.gson.fromJson(
@@ -65,13 +66,12 @@ public class EndpointRestAPI extends CommonRestApi {
 						parameters), GenericResponse.class);
 	}
 
-	public GenericResponse deleteEndpoint(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse deleteEndpoint(Map<String, String> parameters)
+			throws PlivoException {
 		String endpoint_id = HttpUtils.getKeyValue(parameters, "endpoint_id");
 		return this.gson.fromJson(
 				request("DELETE", String.format("/Endpoint/%s/", endpoint_id),
-						new LinkedHashMap<String, String>()),
-				GenericResponse.class);
+						new HashMap<String, String>()), GenericResponse.class);
 	}
 
 }

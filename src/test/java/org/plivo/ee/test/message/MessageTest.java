@@ -8,7 +8,6 @@ import org.plivo.ee.helper.api.response.message.MessageResponse;
 import org.plivo.ee.helper.exception.PlivoException;
 import org.plivo.ee.test.common.AbstractTest;
 
-
 public class MessageTest extends AbstractTest {
 
 	@Test
@@ -20,10 +19,10 @@ public class MessageTest extends AbstractTest {
 		getParameters().put("url", "http://xxx.rhcloud.com/statusCallback.jsf");
 		try {
 			MessageResponse result = getRestApi().sendMessage(getParameters());
-			Assert.assertNotNull(result.messageUuids);
-			for (String uid : result.messageUuids) {
+			Assert.assertNotNull(result.getMessageUuids());
+			for (String uid : result.getMessageUuids()) {
 				Assert.assertNotNull(uid);
-				Assert.assertNull(result.error);
+				Assert.assertNull(result.getError());
 			}
 		} catch (PlivoException e) {
 			e.printStackTrace();
@@ -40,8 +39,8 @@ public class MessageTest extends AbstractTest {
 		try {
 			Call result = getRestApi().makeCall(getParameters());
 			Assert.assertNotNull(result);
-			Assert.assertNotNull(result.requestUUID);
-			Assert.assertNull(result.error);
+			Assert.assertNotNull(result.getRequestUUID());
+			Assert.assertNull(result.getError());
 		} catch (PlivoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -7,7 +7,6 @@ import org.plivo.ee.helper.api.response.message.MessageResponse;
 import org.plivo.ee.helper.exception.PlivoException;
 import org.plivo.ee.test.common.AbstractTest;
 
-
 public class SendMessageTest extends AbstractTest {
 
 	@Test
@@ -21,11 +20,12 @@ public class SendMessageTest extends AbstractTest {
 
 		try {
 			MessageResponse msgResponse = getRestApi().sendMessage(parameters);
-			Assert.assertNotNull(msgResponse.apiId);
-			if (msgResponse.serverCode == 202) {
-				System.out.println(msgResponse.messageUuids.get(0).toString());
+			Assert.assertNotNull(msgResponse.getApiId());
+			if (msgResponse.getServerCode().equals(202)) {
+				System.out.println(msgResponse.getMessageUuids().get(0)
+						.toString());
 			} else {
-				System.out.println(msgResponse.error);
+				System.out.println(msgResponse.getError());
 			}
 		} catch (PlivoException e) {
 			System.out.println(e.getLocalizedMessage());

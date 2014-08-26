@@ -1,6 +1,7 @@
 package org.plivo.ee.helper.api.client.simple;
 
-import java.util.LinkedHashMap;
+
+import java.util.Map;
 
 import org.plivo.ee.helper.api.common.CommonRestApi;
 import org.plivo.ee.helper.api.response.carrier.OutgoingCarrierRouting;
@@ -40,14 +41,14 @@ public class OutgoingCarrierRoutingRestAPI extends CommonRestApi {
 
 	// Outgoing Carrier Routing
 	public OutgoingCarrierRoutingFactory getOutgoingCarrierRoutings(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+			Map<String, String> parameters) throws PlivoException {
 		return this.gson.fromJson(
 				request("GET", "/OutgoingCarrierRouting/", parameters),
 				OutgoingCarrierRoutingFactory.class);
 	}
 
 	public OutgoingCarrierRouting getOutgoingCarrierRouting(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+			Map<String, String> parameters) throws PlivoException {
 		String carrier = HttpUtils.getKeyValue(parameters, "routing_id");
 		return this.gson.fromJson(
 				request("GET",
@@ -56,14 +57,14 @@ public class OutgoingCarrierRoutingRestAPI extends CommonRestApi {
 	}
 
 	public OutgoingCarrierRoutingCreatedResponse addOutgoingCarrierRouting(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+			Map<String, String> parameters) throws PlivoException {
 		return this.gson.fromJson(
 				request("POST", "/OutgoingCarrierRouting/", parameters),
 				OutgoingCarrierRoutingCreatedResponse.class);
 	}
 
 	public GenericResponse editOutgoingCarrierRouting(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+			Map<String, String> parameters) throws PlivoException {
 		String routing_id = HttpUtils.getKeyValue(parameters, "routing_id");
 		return this.gson.fromJson(
 				request("POST", String.format("/OutgoingCarrierRouting/%s/",
@@ -71,7 +72,7 @@ public class OutgoingCarrierRoutingRestAPI extends CommonRestApi {
 	}
 
 	public GenericResponse dropOutgoingCarrierRouting(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+			Map<String, String> parameters) throws PlivoException {
 		String routing_id = HttpUtils.getKeyValue(parameters, "routing_id");
 		return this.gson.fromJson(
 				request("DELETE", String.format("/OutgoingCarrierRouting/%s/",

@@ -1,6 +1,7 @@
 package org.plivo.ee.helper.api.client.simple;
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.plivo.ee.helper.api.common.CommonRestApi;
 import org.plivo.ee.helper.api.response.message.Message;
@@ -37,29 +38,27 @@ public class MessageRestAPI extends CommonRestApi {
 	}
 
 	// Message
-	public MessageResponse sendMessage(LinkedHashMap<String, String> parameters)
+	public MessageResponse sendMessage(Map<String, String> parameters)
 			throws PlivoException {
 		return this.gson.fromJson(request("POST", "/Message/", parameters),
 				MessageResponse.class);
 	}
 
-	public Message getMessage(LinkedHashMap<String, String> parameters)
+	public Message getMessage(Map<String, String> parameters)
 			throws PlivoException {
 		String record_id = HttpUtils.getKeyValue(parameters, "record_id");
 		return this.gson.fromJson(
 				request("GET", String.format("/Message/%s/", record_id),
-						new LinkedHashMap<String, String>()), Message.class);
+						new HashMap<String, String>()), Message.class);
 	}
 
 	public MessageFactory getMessages() throws PlivoException {
-		return this.gson
-				.fromJson(
-						request("GET", "/Message/",
-								new LinkedHashMap<String, String>()),
-						MessageFactory.class);
+		return this.gson.fromJson(
+				request("GET", "/Message/", new HashMap<String, String>()),
+				MessageFactory.class);
 	}
 
-	public MessageFactory getMessages(LinkedHashMap<String, String> parameters)
+	public MessageFactory getMessages(Map<String, String> parameters)
 			throws PlivoException {
 		return this.gson.fromJson(request("GET", "/Message/", parameters),
 				MessageFactory.class);

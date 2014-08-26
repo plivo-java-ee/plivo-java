@@ -7,7 +7,6 @@ import org.plivo.ee.helper.api.response.number.NumberSearchFactory;
 import org.plivo.ee.helper.exception.PlivoException;
 import org.plivo.ee.test.common.AbstractTest;
 
-
 public class ListRentedNumberTest extends AbstractTest {
 
 	@Test
@@ -15,7 +14,7 @@ public class ListRentedNumberTest extends AbstractTest {
 
 		try {
 			NumberSearchFactory numbers = getRestApi().getNumbers();
-			Assert.assertNotNull(numbers.numberList.get(0).number);
+			Assert.assertNotNull(numbers.getNumberList().get(0).getNumber());
 		} catch (PlivoException plivoException) {
 			plivoException.printStackTrace();
 		}

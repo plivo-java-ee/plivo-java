@@ -20,7 +20,7 @@ public class CallExtensionTest extends AbstractTest {
 		getParameters().put("answer-method", "GET");
 		try {
 			Call response = getRestApi().makeCall(getParameters());
-			Assert.assertNotNull(response.apiId);
+			Assert.assertNotNull(response.getApiId());
 		} catch (PlivoException e) {
 			System.out.println(e.getMessage());
 		}

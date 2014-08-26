@@ -20,7 +20,7 @@ public class MakeMemberDeafTest extends AbstractTest {
 		 */
 		try {
 			GenericResponse response = getRestApi().deafMember(getParameters());
-			Assert.assertNotNull(response.apiId);
+			Assert.assertNotNull(response.getApiId());
 		} catch (PlivoException plivoException) {
 
 			plivoException.printStackTrace();

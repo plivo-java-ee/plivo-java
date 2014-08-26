@@ -18,7 +18,7 @@ public class UnmuteMemberTest extends AbstractTest {
 		try {
 			GenericResponse response = getRestApi().unmuteMember(
 					getParameters());
-			Assert.assertNotNull(response.apiId);
+			Assert.assertNotNull(response.getApiId());
 		} catch (PlivoException plivoException) {
 			plivoException.printStackTrace();
 		}

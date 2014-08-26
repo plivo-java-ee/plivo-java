@@ -18,7 +18,7 @@ public class HangUpConferenceMemberTest extends AbstractTest {
 		try {
 			GenericResponse response = getRestApi().hangupMember(
 					getParameters());
-			Assert.assertNotNull(response.message);
+			Assert.assertNotNull(response.getMessage());
 		} catch (PlivoException plivoException) {
 
 			plivoException.printStackTrace();

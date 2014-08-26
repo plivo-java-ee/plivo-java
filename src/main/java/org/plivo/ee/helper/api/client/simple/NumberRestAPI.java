@@ -1,6 +1,7 @@
 package org.plivo.ee.helper.api.client.simple;
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.plivo.ee.helper.api.common.CommonRestApi;
 import org.plivo.ee.helper.api.response.number.NumberGroupFactory;
@@ -39,45 +40,43 @@ public class NumberRestAPI extends CommonRestApi {
 
 	// Number
 	public NumberSearchFactory getNumbers() throws PlivoException {
-		return this.gson
-				.fromJson(
-						request("GET", "/Number/",
-								new LinkedHashMap<String, String>()),
-						NumberSearchFactory.class);
+		return this.gson.fromJson(
+				request("GET", "/Number/", new HashMap<String, String>()),
+				NumberSearchFactory.class);
 	}
 
-	public NumberSearchFactory getNumbers(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public NumberSearchFactory getNumbers(Map<String, String> parameters)
+			throws PlivoException {
 		return this.gson.fromJson(request("GET", "/Number/", parameters),
 				NumberSearchFactory.class);
 	}
 
 	@Deprecated
-	public NumberSearchFactory searchNumbers(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public NumberSearchFactory searchNumbers(Map<String, String> parameters)
+			throws PlivoException {
 		return this.gson.fromJson(
 				request("GET", "/AvailableNumber/", parameters),
 				NumberSearchFactory.class);
 	}
 
 	@Deprecated
-	public GenericResponse rentNumber(LinkedHashMap<String, String> parameters)
+	public GenericResponse rentNumber(Map<String, String> parameters)
 			throws PlivoException {
 		String number = HttpUtils.getKeyValue(parameters, "number");
 		return this.gson.fromJson(
 				request("POST", String.format("/AvailableNumber/%s/", number,
-						parameters), new LinkedHashMap<String, String>()),
+						parameters), new HashMap<String, String>()),
 				GenericResponse.class);
 	}
 
-	public NumberGroupFactory searchNumberGroups(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public NumberGroupFactory searchNumberGroups(Map<String, String> parameters)
+			throws PlivoException {
 		return this.gson.fromJson(
 				request("GET", "/AvailableNumberGroup/", parameters),
 				NumberGroupFactory.class);
 	}
 
-	public NumberResponse rentNumbers(LinkedHashMap<String, String> parameters)
+	public NumberResponse rentNumbers(Map<String, String> parameters)
 			throws PlivoException {
 		String groupId = HttpUtils.getKeyValue(parameters, "group_id");
 		return this.gson.fromJson(
@@ -86,7 +85,7 @@ public class NumberRestAPI extends CommonRestApi {
 						parameters), NumberResponse.class);
 	}
 
-	public GenericResponse unRentNumber(LinkedHashMap<String, String> parameters)
+	public GenericResponse unRentNumber(Map<String, String> parameters)
 			throws PlivoException {
 		String number = HttpUtils.getKeyValue(parameters, "number");
 		return this.gson.fromJson(
@@ -94,8 +93,8 @@ public class NumberRestAPI extends CommonRestApi {
 						parameters), GenericResponse.class);
 	}
 
-	public GenericResponse linkApplicationNumber(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse linkApplicationNumber(Map<String, String> parameters)
+			throws PlivoException {
 		String number = HttpUtils.getKeyValue(parameters, "number");
 		return this.gson.fromJson(
 				request("POST", String.format("/Number/%s/", number),
@@ -103,7 +102,7 @@ public class NumberRestAPI extends CommonRestApi {
 	}
 
 	public GenericResponse unlinkApplicationNumber(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+			Map<String, String> parameters) throws PlivoException {
 		String number = HttpUtils.getKeyValue(parameters, "number");
 		parameters.put("app_id", "");
 		return this.gson.fromJson(

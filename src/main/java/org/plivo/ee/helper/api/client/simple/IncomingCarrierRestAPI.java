@@ -1,6 +1,7 @@
 package org.plivo.ee.helper.api.client.simple;
 
-import java.util.LinkedHashMap;
+
+import java.util.Map;
 
 import org.plivo.ee.helper.api.common.CommonRestApi;
 import org.plivo.ee.helper.api.response.carrier.IncomingCarrier;
@@ -39,14 +40,14 @@ public class IncomingCarrierRestAPI extends CommonRestApi {
 
 	// Incoming Carrier
 	public IncomingCarrierFactory getIncomingCarriers(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+			Map<String, String> parameters) throws PlivoException {
 		return this.gson.fromJson(
 				request("GET", "/IncomingCarrier/", parameters),
 				IncomingCarrierFactory.class);
 	}
 
 	public IncomingCarrier getIncomingCarrier(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+			Map<String, String> parameters) throws PlivoException {
 		String carrier = HttpUtils.getKeyValue(parameters, "carrier_id");
 		return this.gson.fromJson(
 				request("GET", String.format("/IncomingCarrier/%s/", carrier),
@@ -54,14 +55,14 @@ public class IncomingCarrierRestAPI extends CommonRestApi {
 	}
 
 	public GenericResponse addIncomingCarrier(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+			Map<String, String> parameters) throws PlivoException {
 		return this.gson.fromJson(
 				request("POST", "/IncomingCarrier/", parameters),
 				GenericResponse.class);
 	}
 
 	public GenericResponse editIncomingCarrier(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+			Map<String, String> parameters) throws PlivoException {
 		String carrier = HttpUtils.getKeyValue(parameters, "carrier_id");
 		return this.gson.fromJson(
 				request("POST", String.format("/IncomingCarrier/", carrier),
@@ -69,7 +70,7 @@ public class IncomingCarrierRestAPI extends CommonRestApi {
 	}
 
 	public GenericResponse dropIncomingCarrier(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+			Map<String, String> parameters) throws PlivoException {
 		String carrier = HttpUtils.getKeyValue(parameters, "carrier_id");
 		return this.gson.fromJson(
 				request("DELETE",

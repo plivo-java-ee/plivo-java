@@ -1,6 +1,7 @@
 package org.plivo.ee.helper.api.client.simple;
 
-import java.util.LinkedHashMap;
+
+import java.util.Map;
 
 import org.plivo.ee.helper.api.common.CommonRestApi;
 import org.plivo.ee.helper.api.response.pricing.PlivoPricing;
@@ -34,7 +35,7 @@ public class PricingRestAPI extends CommonRestApi {
 	}
 
 	// Pricing
-	public PlivoPricing getPricing(LinkedHashMap<String, String> parameters)
+	public PlivoPricing getPricing(Map<String, String> parameters)
 			throws PlivoException {
 		return this.gson.fromJson(request("GET", "/Pricing/", parameters),
 				PlivoPricing.class);

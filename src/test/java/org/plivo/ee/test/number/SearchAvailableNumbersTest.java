@@ -27,7 +27,7 @@ public class SearchAvailableNumbersTest extends AbstractTest {
 
 		try {
 			numbers = getRestApi().searchNumberGroups(getParameters());
-			Assert.assertNotNull(numbers.groupList.get(0).groupId);
+			Assert.assertNotNull(numbers.getGroupList().get(0).getGroupId());
 		} catch (PlivoException plivoException) {
 			System.out.println(plivoException.getMessage());
 		}

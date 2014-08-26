@@ -24,7 +24,7 @@ public class KickMemberTest extends AbstractTest {
 		GenericResponse response = new GenericResponse();
 		try {
 			response = getRestApi().kickMember(getParameters());
-			Assert.assertNotNull(response.apiId);
+			Assert.assertNotNull(response.getApiId());
 		} catch (PlivoException plivoException) {
 			plivoException.printStackTrace();
 		}

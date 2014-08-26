@@ -1,6 +1,7 @@
 package org.plivo.ee.helper.api.client.simple;
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.plivo.ee.helper.api.common.CommonRestApi;
 import org.plivo.ee.helper.api.response.account.Account;
@@ -40,11 +41,11 @@ public class AccountRestAPI extends CommonRestApi {
 	// Account
 	public Account getAccount() throws PlivoException {
 		return this.gson.fromJson(
-				request("GET", "/", new LinkedHashMap<String, String>()),
+				request("GET", "/", new HashMap<String, String>()),
 				Account.class);
 	}
 
-	public GenericResponse editAccount(LinkedHashMap<String, String> parameters)
+	public GenericResponse editAccount(Map<String, String> parameters)
 			throws PlivoException {
 		return this.gson.fromJson(request("POST", "/", parameters),
 				GenericResponse.class);
@@ -52,12 +53,11 @@ public class AccountRestAPI extends CommonRestApi {
 
 	public SubAccountFactory getSubaccounts() throws PlivoException {
 		return this.gson.fromJson(
-				request("GET", "/Subaccount/",
-						new LinkedHashMap<String, String>()),
+				request("GET", "/Subaccount/", new HashMap<String, String>()),
 				SubAccountFactory.class);
 	}
 
-	public SubAccount getSubaccount(LinkedHashMap<String, String> parameters)
+	public SubAccount getSubaccount(Map<String, String> parameters)
 			throws PlivoException {
 		String subauth_id = HttpUtils.getKeyValue(parameters, "subauth_id");
 		return this.gson.fromJson(
@@ -65,20 +65,20 @@ public class AccountRestAPI extends CommonRestApi {
 						parameters), SubAccount.class);
 	}
 
-	public GenericResponse createSubaccount(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse createSubaccount(Map<String, String> parameters)
+			throws PlivoException {
 		return this.gson.fromJson(request("POST", "/Subaccount/", parameters),
 				GenericResponse.class);
 	}
 
-	public GenericResponse editSubaccount(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse editSubaccount(Map<String, String> parameters)
+			throws PlivoException {
 		return this.gson.fromJson(request("POST", "/Subaccount/", parameters),
 				GenericResponse.class);
 	}
 
-	public GenericResponse deleteSubaccount(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse deleteSubaccount(Map<String, String> parameters)
+			throws PlivoException {
 		String subauth_id = HttpUtils.getKeyValue(parameters, "subauth_id");
 		return this.gson.fromJson(
 				request("DELETE", String.format("/Subaccount/%s/", subauth_id),

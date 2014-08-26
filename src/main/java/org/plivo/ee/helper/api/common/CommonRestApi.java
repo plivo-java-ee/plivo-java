@@ -1,13 +1,14 @@
 package org.plivo.ee.helper.api.common;
 
-import java.util.LinkedHashMap;
+import java.io.Serializable;
+import java.util.Map;
 
 import org.plivo.ee.helper.exception.PlivoException;
 import org.plivo.ee.helper.util.HttpUtils;
 
+public class CommonRestApi implements Serializable{
 
-public class CommonRestApi {
-
+	private static final long serialVersionUID = 1L;
 	protected static final String PLIVO_PROTOCOL = "https://";
 	protected static final String PLIVO_HOST = "api.plivo.com";
 	protected static final int PLIVO_PORT = 443;
@@ -18,7 +19,7 @@ public class CommonRestApi {
 	protected String baseURI;
 
 	public String request(String method, String resource,
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+			Map<String, String> parameters) throws PlivoException {
 		return HttpUtils.request(method, resource, parameters, PLIVO_HOST,
 				PLIVO_PORT, authId, authToken, baseURI);
 	}

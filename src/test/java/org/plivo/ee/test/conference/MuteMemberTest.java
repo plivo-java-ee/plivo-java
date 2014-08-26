@@ -22,7 +22,7 @@ public class MuteMemberTest extends AbstractTest {
 		getParameters().put("member_id", "1,2,3");
 		try {
 			GenericResponse response = getRestApi().muteMember(getParameters());
-			Assert.assertNotNull(response.apiId);
+			Assert.assertNotNull(response.getApiId());
 		} catch (PlivoException plivoException) {
 			plivoException.printStackTrace();
 		}

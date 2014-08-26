@@ -1,16 +1,35 @@
 package org.plivo.ee.helper.api.response.pricing;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.ArrayList;
+import java.io.Serializable;
+import java.util.List;
 
-public class RatesPrefixes {
-	public String rate ;
-	
+import com.google.gson.annotations.SerializedName;
+
+public class RatesPrefixes implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	private String rate;
+
 	@SerializedName("prefix")
-	public ArrayList<String> numberPrefixes ;
-	
+	private List<String> numberPrefixes;
+
 	public RatesPrefixes() {
-		// empty
+	}
+
+	public String getRate() {
+		return rate;
+	}
+
+	public void setRate(String rate) {
+		this.rate = rate;
+	}
+
+	public List<String> getNumberPrefixes() {
+		return numberPrefixes;
+	}
+
+	public void setNumberPrefixes(List<String> numberPrefixes) {
+		this.numberPrefixes = numberPrefixes;
 	}
 
 }

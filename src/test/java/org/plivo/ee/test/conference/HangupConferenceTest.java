@@ -16,7 +16,7 @@ public class HangupConferenceTest extends AbstractTest {
 		try {
 			GenericResponse genResponse = getRestApi().hangupConference(
 					getParameters());
-			Assert.assertNotNull(genResponse.apiId);
+			Assert.assertNotNull(genResponse.getApiId());
 		} catch (PlivoException plivoException) {
 
 			plivoException.printStackTrace();

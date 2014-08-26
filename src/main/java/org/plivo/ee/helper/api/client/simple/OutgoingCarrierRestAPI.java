@@ -1,6 +1,6 @@
 package org.plivo.ee.helper.api.client.simple;
 
-import java.util.LinkedHashMap;
+import java.util.Map;
 
 import org.plivo.ee.helper.api.common.CommonRestApi;
 import org.plivo.ee.helper.api.response.carrier.OutgoingCarrier;
@@ -40,14 +40,14 @@ public class OutgoingCarrierRestAPI extends CommonRestApi {
 
 	// Outgoing Carrier
 	public OutgoingCarrierFactory getOutgoingCarriers(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+			Map<String, String> parameters) throws PlivoException {
 		return this.gson.fromJson(
 				request("GET", "/OutgoingCarrier/", parameters),
 				OutgoingCarrierFactory.class);
 	}
 
-	public OutgoingCarrier getOutgoingCarrier(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public OutgoingCarrier getOutgoingCarrier(Map<String, String> parameters)
+			throws PlivoException {
 		String carrier = HttpUtils.getKeyValue(parameters, "carrier_id");
 		return this.gson.fromJson(
 				request("GET", String.format("/OutgoingCarrier/%s/", carrier),
@@ -55,22 +55,22 @@ public class OutgoingCarrierRestAPI extends CommonRestApi {
 	}
 
 	public OutgoingCarrierCreatedResponse addOutgoingCarrier(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+			Map<String, String> parameters) throws PlivoException {
 		return this.gson.fromJson(
 				request("POST", "/OutgoingCarrier/", parameters),
 				OutgoingCarrierCreatedResponse.class);
 	}
 
-	public GenericResponse editOutgoingCarrier(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse editOutgoingCarrier(Map<String, String> parameters)
+			throws PlivoException {
 		String carrier = HttpUtils.getKeyValue(parameters, "carrier_id");
 		return this.gson.fromJson(
 				request("POST", String.format("/OutgoingCarrier/%s/", carrier),
 						parameters), GenericResponse.class);
 	}
 
-	public GenericResponse dropOutgoingCarrier(
-			LinkedHashMap<String, String> parameters) throws PlivoException {
+	public GenericResponse dropOutgoingCarrier(Map<String, String> parameters)
+			throws PlivoException {
 		String carrier = HttpUtils.getKeyValue(parameters, "carrier_id");
 		return this.gson.fromJson(
 				request("DELETE",

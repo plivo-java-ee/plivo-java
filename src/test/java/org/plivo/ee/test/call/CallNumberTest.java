@@ -18,7 +18,7 @@ public class CallNumberTest extends AbstractTest {
 				"http://dl.dropbox.com/u/54579287/Docs/speak.xml");
 		try {
 			Call response = getRestApi().makeCall(getParameters());
-			Assert.assertNotNull(response.apiId);
+			Assert.assertNotNull(response.getApiId());
 		} catch (PlivoException e) {
 			System.out.println(e.getMessage());
 		}
