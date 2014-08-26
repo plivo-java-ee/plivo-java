@@ -87,7 +87,6 @@ public class AccountApiTest extends AbstractTest
    @Order(order = 4)
    public void testGetDetailsSubaccount()
    {
-      System.out.println("sub_auth_id:" + sub_auth_id);
       try
       {
          Map<String, String> parameters = new HashMap<>();
