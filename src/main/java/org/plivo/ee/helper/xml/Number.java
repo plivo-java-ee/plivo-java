@@ -9,7 +9,8 @@ import javax.xml.bind.annotation.XmlValue;
 public class Number
 {
 
-   public Number() {
+   public Number()
+   {
 
    }
 
@@ -36,7 +37,7 @@ public class Number
     * 
     * Accepts: true or false
     * 
-* Defaults to: false
+    * Defaults to: false
     */
    @XmlAttribute
    private Boolean sendOnPreanswer;

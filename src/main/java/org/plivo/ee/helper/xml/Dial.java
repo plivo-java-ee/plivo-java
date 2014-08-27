@@ -1,5 +1,6 @@
 package org.plivo.ee.helper.xml;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAttribute;
@@ -175,7 +176,27 @@ public class Dial
    @XmlElement(name = "Number")
    public List<Number> numbers;
 
+   public Dial number(Number number)
+   {
+      if (numbers == null)
+      {
+         numbers = new ArrayList<>();
+      }
+      numbers.add(number);
+      return this;
+   }
+
    @XmlElement(name = "User")
    public List<User> users;
+
+   public Dial user(User user)
+   {
+      if (users == null)
+      {
+         users = new ArrayList<>();
+      }
+      users.add(user);
+      return this;
+   }
 
 }

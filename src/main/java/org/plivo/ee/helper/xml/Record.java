@@ -7,7 +7,7 @@ import org.plivo.ee.helper.xml.type.FileFormat;
 import org.plivo.ee.helper.xml.type.Method;
 import org.plivo.ee.helper.xml.type.TranscriptionType;
 
-@XmlRootElement(name = "Redirect")
+@XmlRootElement(name = "Record")
 public class Record
 {
 
@@ -16,7 +16,7 @@ public class Record
     * 
     * Accept: absolute URL (mandatory)
     * 
-* Defaults to: no default action for Record
+    * Defaults to: no default action for Record
     */
    @XmlAttribute(required = true)
    public String action;
@@ -26,7 +26,7 @@ public class Record
     * 
     * Accepts: GET, POST
     * 
-* Defaults to: POST
+    * Defaults to: POST
     */
    @XmlAttribute
    public Method method;
@@ -36,7 +36,7 @@ public class Record
     * 
     * Accepts. Valid formats: mp3,wav.
     * 
-* Defaults to: Defaults to mp3.
+    * Defaults to: Defaults to mp3.
     */
    @XmlAttribute
    public FileFormat fileFormat;
@@ -46,7 +46,7 @@ public class Record
     * 
     * Accepts: true, false
     * 
-* Defaults to: true
+    * Defaults to: true
     */
    @XmlAttribute
    public Boolean redirect;
@@ -57,7 +57,7 @@ public class Record
     * 
     * Accepts: positive integer
     * 
-* Defaults to: 15
+    * Defaults to: 15
     */
    @XmlAttribute
    public Integer timeout;
@@ -67,7 +67,7 @@ public class Record
     * 
     * Accepts: integer greater than 1
     * 
-* Defaults to: 60 (1 min)
+    * Defaults to: 60 (1 min)
     */
    @XmlAttribute
    public Integer maxLength;
@@ -77,7 +77,7 @@ public class Record
     * 
     * Accepts: true, false
     * 
-* Defaults to: true
+    * Defaults to: true
     */
    @XmlAttribute
    public Boolean playBeep;
@@ -87,7 +87,7 @@ public class Record
     * 
     * Accepts: any digit, #, *
     * 
-* Defaults to: 1234567890*#
+    * Defaults to: 1234567890*#
     */
    @XmlAttribute
    public String finishOnKey;
@@ -97,7 +97,7 @@ public class Record
     * 
     * Accepts: true, false
     * 
-* Defaults to: false
+    * Defaults to: false
     */
    @XmlAttribute
    public Boolean recordSession;
@@ -107,7 +107,7 @@ public class Record
     * 
     * Accepts: true, false
     * 
-* Defaults to: false
+    * Defaults to: false
     */
    @XmlAttribute
    public Boolean startOnDialAnswer;
@@ -121,7 +121,7 @@ public class Record
     * minutes). Currently the service is available only in English and you will be charged for the usage. Please check
     * out the price details.
     * 
-* Defaults to: auto
+    * Defaults to: auto
     */
    @XmlAttribute
    public TranscriptionType transcriptionType;
@@ -131,7 +131,7 @@ public class Record
     * 
     * Accepts: absolute URL
     * 
-* Defaults to: none
+    * Defaults to: none
     */
    @XmlAttribute
    public String transcriptionUrl;
@@ -141,7 +141,7 @@ public class Record
     * 
     * Accepts: GET, POST
     * 
-* Defaults to: POST
+    * Defaults to: POST
     */
    @XmlAttribute
    public Method transcriptionMethod;
@@ -152,7 +152,7 @@ public class Record
     * 
     * Accepts: absolute URL
     * 
-* Defaults to: None
+    * Defaults to: None
     */
    @XmlAttribute
    public String callbackUrl;
@@ -162,7 +162,7 @@ public class Record
     * 
     * Accepts: GET, POST
     * 
-* Defaults to: POST
+    * Defaults to: POST
     */
    @XmlAttribute
    public Method callbackMethod;

@@ -78,4 +78,28 @@ public class MessageApiTest extends AbstractTest
       }
    }
 
+   @Test
+   public void testSendMessageFluently()
+   {
+      try
+      {
+         messageApi.put(GlobalConstant.AUTH_ID, auth_id)
+                  .put(GlobalConstant.SRC, number)
+                  .put(GlobalConstant.DST, "+393922274929")
+                  .put(GlobalConstant.TEXT, "ciao come va")
+                  .put(GlobalConstant.TYPE, "sms")
+                  .put(GlobalConstant.URL, "https://we.getdat.es/api/v1/plivo/sms/url")
+                  .put(GlobalConstant.METHOD, "POST")
+                  .put(GlobalConstant.LOG, "true");
+         ApiResponse result = messageApi.sendMessage();
+         Assert.assertNotNull(result);
+         System.out.println(result);
+      }
+      catch (Exception e)
+      {
+         e.printStackTrace();
+         Assert.fail(e.getMessage());
+      }
+   }
+
 }

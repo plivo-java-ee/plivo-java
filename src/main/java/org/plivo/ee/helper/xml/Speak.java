@@ -20,6 +20,19 @@ public class Speak
       this.value = value;
    }
 
+   public Speak(String value, Language language)
+   {
+      this.value = value;
+      this.language = language;
+   }
+
+   public Speak(String value, Voice voice, Language language)
+   {
+      this.value = value;
+      this.voice = voice;
+      this.language = language;
+   }
+
    /**
     * The tone to be used for reading out the text.
     * 

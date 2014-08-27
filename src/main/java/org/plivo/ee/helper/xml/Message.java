@@ -21,6 +21,13 @@ public class Message
       this.value = value;
    }
 
+   public Message(String value, String src, String dst)
+   {
+      this.value = value;
+      this.src = src;
+      this.dst = dst;
+   }
+
    /**
     * Source Number. For eg.1202322222
     * 

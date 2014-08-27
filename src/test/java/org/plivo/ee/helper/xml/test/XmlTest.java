@@ -91,6 +91,36 @@ public class XmlTest
    }
 
    @Test
+   public void dialWithNumbersFluently()
+   {
+      try
+      {
+         StringWriter sw = new StringWriter();
+         Dial dial = new Dial();
+         dial.callerId = "12345678901";
+         dial.action = "http://http://myserverurl/setredirect/";
+         dial.method = Method.GET;
+         dial.number(new Number("123456")).number(new Number("789120"));
+         Response response = new Response(dial);
+         JAXBContext jaxbContext = JAXBContext.newInstance(Response.class);
+         Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+         jaxbMarshaller.setProperty(Marshaller.JAXB_FRAGMENT, Boolean.FALSE);
+
+         // output pretty printed
+         jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, false);
+         jaxbMarshaller.marshal(response, sw);
+         Assert.assertEquals(
+                  "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><Response><Dial action=\"http://http://myserverurl/setredirect/\" method=\"GET\" callerId=\"12345678901\"><Number>123456</Number><Number>789120</Number></Dial></Response>",
+                  sw.toString());
+
+      }
+      catch (JAXBException e)
+      {
+         e.printStackTrace();
+      }
+   }
+
+   @Test
    public void conference()
    {
       try
@@ -223,6 +253,36 @@ public class XmlTest
          dial1.numbers = new ArrayList<>();
          dial1.numbers.add(new Number("15671234567"));
          response.dials.add(dial1);
+
+         StringWriter sw = new StringWriter();
+         JAXBContext jaxbContext = JAXBContext.newInstance(Response.class);
+         Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+
+         // output pretty printed
+         jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, false);
+
+         jaxbMarshaller.marshal(response, sw);
+         Assert.assertEquals(
+                  "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><Response><Dial><Number>15671234567</Number><User>sip:alice1234@phone.plivo.com</User><User>sip:john1234@phone.plivo.com</User></Dial></Response>",
+                  sw.toString());
+
+      }
+      catch (Exception e)
+      {
+         e.printStackTrace();
+      }
+   }
+
+   @Test
+   public void simultaneousDialingFluently()
+   {
+      try
+      {
+
+         Dial dial1 = new Dial();
+         dial1.user(new User("sip:alice1234@phone.plivo.com")).user(new User("sip:john1234@phone.plivo.com"))
+                  .number(new Number("15671234567"));
+         Response response = new Response(dial1);
 
          StringWriter sw = new StringWriter();
          JAXBContext jaxbContext = JAXBContext.newInstance(Response.class);
