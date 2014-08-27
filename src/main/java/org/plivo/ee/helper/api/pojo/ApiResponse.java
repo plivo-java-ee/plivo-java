@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ApiResponse
 {
    public String message;
+   public String error;
    public String api_id;
 
    // SUBACCOUNT
@@ -50,7 +51,7 @@ public class ApiResponse
    public String toString()
    {
       return "ApiResponse [" + (message != null ? "message=" + message + ", " : "")
-               + (api_id != null ? "api_id=" + api_id + ", " : "")
+               + (error != null ? "error=" + error + ", " : "") + (api_id != null ? "api_id=" + api_id + ", " : "")
                + (auth_id != null ? "auth_id=" + auth_id + ", " : "")
                + (auth_token != null ? "auth_token=" + auth_token + ", " : "")
                + (request_uuid != null ? "request_uuid=" + request_uuid + ", " : "")
