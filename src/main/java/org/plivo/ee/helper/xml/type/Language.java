@@ -1,4 +1,4 @@
-package org.plivo.ee.helper.xml;
+package org.plivo.ee.helper.xml.type;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;

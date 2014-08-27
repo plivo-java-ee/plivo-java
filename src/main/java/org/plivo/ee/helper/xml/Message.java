@@ -4,6 +4,9 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlValue;
 
+import org.plivo.ee.helper.xml.type.MessageType;
+import org.plivo.ee.helper.xml.type.Method;
+
 @XmlRootElement(name = "Message")
 public class Message
 {
@@ -23,7 +26,7 @@ public class Message
     * 
     * Accepts: Must be a purchased, valid number.
     * 
-* Defaults to: None
+    * Defaults to: None
     */
    @XmlAttribute(required = true)
    public String src;
@@ -33,7 +36,7 @@ public class Message
     * 
     * Accepts: Must be a valid number.
     * 
-* Defaults to: None
+    * Defaults to: None
     */
    @XmlAttribute(required = true)
    public String dst;
@@ -43,7 +46,7 @@ public class Message
     * 
     * Accepts: sms
     * 
-* Defaults to: sms
+    * Defaults to: sms
     */
    @XmlAttribute
    public MessageType type;
@@ -53,7 +56,7 @@ public class Message
     * 
     * Accepts: absolute URL
     * 
-* Defaults to: None
+    * Defaults to: None
     */
    @XmlAttribute
    public String callbackUrl;
@@ -63,7 +66,7 @@ public class Message
     * 
     * Accepts: GET, POST
     * 
-* Defaults to: POST
+    * Defaults to: POST
     */
    @XmlAttribute
    public Method callbackMethod;

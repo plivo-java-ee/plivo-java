@@ -12,7 +12,7 @@ public class Wait
     * 
     * Accepts: integer greater than 0
     * 
-* Defaults to: 1
+    * Defaults to: 1
     */
    @XmlAttribute
    public Integer length;
@@ -25,7 +25,7 @@ public class Wait
     * 
     * Accepts: true or false
     * 
-* Defaults to: false
+    * Defaults to: false
     */
    @XmlAttribute
    public Boolean silence;
@@ -37,7 +37,7 @@ public class Wait
     * 
     * Accepts: integer > 0 200
     * 
-* Defaults to: 2000
+    * Defaults to: 2000
     */
    @XmlAttribute
    public Integer minSilence;

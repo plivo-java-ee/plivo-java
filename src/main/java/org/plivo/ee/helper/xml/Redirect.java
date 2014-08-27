@@ -3,6 +3,8 @@ package org.plivo.ee.helper.xml;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.plivo.ee.helper.xml.type.Method;
+
 @XmlRootElement(name = "Redirect")
 public class Redirect
 {
@@ -12,7 +14,7 @@ public class Redirect
     * 
     * Accepts: GET, POST
     * 
-* Defaults to: POST
+    * Defaults to: POST
     */
    @XmlAttribute
    public Method method;

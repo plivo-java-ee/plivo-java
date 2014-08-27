@@ -3,6 +3,10 @@ package org.plivo.ee.helper.xml;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.plivo.ee.helper.xml.type.FileFormat;
+import org.plivo.ee.helper.xml.type.Method;
+import org.plivo.ee.helper.xml.type.TranscriptionType;
+
 @XmlRootElement(name = "Redirect")
 public class Record
 {

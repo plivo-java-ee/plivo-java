@@ -6,6 +6,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.plivo.ee.helper.xml.type.Method;
+
 @XmlRootElement(name = "Dial")
 public class Dial
 {
@@ -15,7 +17,7 @@ public class Dial
     * 
     * Accepts: absolute URL
     * 
-* Defaults to: no default action for Dial
+    * Defaults to: no default action for Dial
     */
    @XmlAttribute
    public String action;
@@ -25,7 +27,7 @@ public class Dial
     * 
     * Accepts: GET, POST
     * 
-* Defaults to: POST
+    * Defaults to: POST
     */
    @XmlAttribute
    public Method method;
@@ -36,7 +38,7 @@ public class Dial
     * 
     * Accepts: true, false
     * 
-* Defaults to: False
+    * Defaults to: False
     */
    @XmlAttribute
    public Boolean hangupOnStar;
@@ -46,7 +48,7 @@ public class Dial
     * 
     * Accepts: positive integer (in seconds)
     * 
-* Defaults to: 14400 seconds (4 hours)
+    * Defaults to: 14400 seconds (4 hours)
     */
    @XmlAttribute
    public Integer timeLimit;
@@ -56,7 +58,7 @@ public class Dial
     * 
     * Accepts: positive integer (seconds)
     * 
-* Defaults to: none
+    * Defaults to: none
     */
    @XmlAttribute
    public Integer timeout;
@@ -66,7 +68,7 @@ public class Dial
     * 
     * Accepts: valid phone number
     * 
-* Defaults to: Current caller's callerId
+    * Defaults to: Current caller's callerId
     */
    @XmlAttribute
    public String callerId;
@@ -76,7 +78,7 @@ public class Dial
     * 
     * Accepts: String or default
     * 
-* Defaults to: current Caller's callerName
+    * Defaults to: current Caller's callerName
     */
    @XmlAttribute
    public String callerName;
@@ -88,7 +90,7 @@ public class Dial
     * 
     * Accepts: absolute URL
     * 
-* Defaults to: empty
+    * Defaults to: empty
     */
    @XmlAttribute
    public String confirmSound;
@@ -133,7 +135,7 @@ public class Dial
     * 
     * Accepts: GET, POST
     * 
-* Defaults to: POST
+    * Defaults to: POST
     */
    @XmlAttribute
    public Method callbackMethod;
@@ -144,7 +146,7 @@ public class Dial
     * 
     * Accepts: true, false
     * 
-* Defaults to: true
+    * Defaults to: true
     */
    @XmlAttribute
    public Boolean redirect;
@@ -165,15 +167,15 @@ public class Dial
     * Accepts: List of SIP headers to send, separated by commas. Sent as key=value pair.For e.g
     * head1=val1,head2=val2,...,headN=valN.
     * 
-* Defaults to: None
+    * Defaults to: None
     */
    @XmlAttribute
    public String sipHeaders;
-   
-   @XmlElement(name ="Number")
+
+   @XmlElement(name = "Number")
    public List<Number> numbers;
-   
-   @XmlElement(name ="User")
-   public List<User> user;
+
+   @XmlElement(name = "User")
+   public List<User> users;
 
 }

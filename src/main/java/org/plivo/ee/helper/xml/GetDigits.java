@@ -4,6 +4,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.plivo.ee.helper.xml.type.Method;
+
 @XmlRootElement(name = "GetDigits")
 public class GetDigits
 {

@@ -1,9 +1,11 @@
 package org.plivo.ee.helper.xml;
 
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlMixed;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlValue;
+
+import org.plivo.ee.helper.xml.type.Language;
+import org.plivo.ee.helper.xml.type.Voice;
 
 @XmlRootElement(name = "Speak")
 public class Speak
@@ -46,7 +48,7 @@ public class Speak
     * Defaults to: 1
     */
    @XmlAttribute
-   public int loop;
+   public Integer loop;
 
    @XmlValue
    public String value;

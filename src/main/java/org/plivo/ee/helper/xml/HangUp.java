@@ -3,6 +3,8 @@ package org.plivo.ee.helper.xml;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.plivo.ee.helper.xml.type.Reason;
+
 @XmlRootElement(name = "HangUp")
 public class HangUp
 {
@@ -12,7 +14,7 @@ public class HangUp
     * 
     * Accepts: rejected, busy
     * 
-* Defaults to: none
+    * Defaults to: none
     */
    @XmlAttribute
    public Reason reason;
@@ -23,7 +25,7 @@ public class HangUp
     * 
     * Accepts: integer > 0 (in seconds)
     * 
-* Defaults to: none
+    * Defaults to: none
     */
    @XmlAttribute
    public Integer schedule;
