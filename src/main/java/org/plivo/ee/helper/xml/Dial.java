@@ -176,6 +176,9 @@ public class Dial
    @XmlElement(name = "Number")
    public List<Number> numbers;
 
+   @XmlElement(name = "User")
+   public List<User> users;
+
    public Dial number(Number number)
    {
       if (numbers == null)
@@ -186,8 +189,30 @@ public class Dial
       return this;
    }
 
-   @XmlElement(name = "User")
-   public List<User> users;
+   public Dial number(String value)
+   {
+      Number number = new Number(value);
+      return number(number);
+   }
+
+   public List<Number> addNumber(Number number)
+   {
+      return number(number).numbers;
+   }
+
+   public Number newNumber()
+   {
+      Number number = new Number();
+      number(number);
+      return number;
+   }
+
+   public Number newNumber(String value)
+   {
+      Number number = new Number(value);
+      number(number);
+      return number;
+   }
 
    public Dial user(User user)
    {
@@ -197,6 +222,31 @@ public class Dial
       }
       users.add(user);
       return this;
+   }
+
+   public Dial user(String value)
+   {
+      User user = new User(value);
+      return user(user);
+   }
+
+   public List<User> addUser(User user)
+   {
+      return this.user(user).users;
+   }
+
+   public User newUser()
+   {
+      User user = new User();
+      user(user);
+      return user;
+   }
+
+   public User newUser(String value)
+   {
+      User user = new User(value);
+      user(user);
+      return user;
    }
 
 }

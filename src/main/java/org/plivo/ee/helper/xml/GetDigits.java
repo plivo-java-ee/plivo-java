@@ -144,4 +144,47 @@ public class GetDigits
    @XmlElement(name = "Play")
    public Play play;
 
+   public GetDigits play()
+   {
+      this.play = new Play();
+      return this;
+   }
+
+   public GetDigits play(String value)
+   {
+      return play(value);
+   }
+
+   public Play newPlay()
+   {
+      return play().play;
+   }
+
+   public Play newPlay(String value)
+   {
+      return play(value).play;
+   }
+
+   public GetDigits speak()
+   {
+      this.speak = new Speak();
+      return this;
+   }
+
+   public GetDigits speak(String value)
+   {
+      this.speak = new Speak(value);
+      return this;
+   }
+
+   public Speak newSpeak()
+   {
+      return speak().speak;
+   }
+
+   public Speak newSpeak(String value)
+   {
+      return speak(value).speak;
+   }
+
 }

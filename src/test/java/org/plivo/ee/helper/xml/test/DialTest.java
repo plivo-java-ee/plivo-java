@@ -23,7 +23,19 @@ public class DialTest
    }
 
    @Test
+   public void dialStatusReportingFluent()
+   {
+
+   }
+
+   @Test
    public void customCallerTone1()
+   {
+
+   }
+
+   @Test
+   public void customCallerTone1Fluent()
    {
 
    }
@@ -35,13 +47,31 @@ public class DialTest
    }
 
    @Test
+   public void customCallerTone2Fluent()
+   {
+
+   }
+
+   @Test
    public void confirmToAnswerCall1()
    {
 
    }
 
    @Test
+   public void confirmToAnswerCall1Fluent()
+   {
+
+   }
+
+   @Test
    public void confirmToAnswerCall2()
+   {
+
+   }
+
+   @Test
+   public void confirmToAnswerCall2Fluent()
    {
 
    }
@@ -82,6 +112,34 @@ public class DialTest
    }
 
    @Test
+   public void sequentialDialingFluent()
+   {
+      try
+      {
+         Response response = new Response();
+         Dial dial1 = new Dial().number("18217654321");
+         dial1.timeout = 20;
+         dial1.action = "http://foo.com/dial_action/";
+         response.dial(dial1).newDial().number("15671234567");
+         StringWriter sw = new StringWriter();
+         JAXBContext jaxbContext = JAXBContext.newInstance(Response.class);
+         Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+
+         // output pretty printed
+         jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, false);
+         jaxbMarshaller.marshal(response, sw);
+         Assert.assertEquals(
+                  "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><Response><Dial action=\"http://foo.com/dial_action/\" timeout=\"20\"><Number>18217654321</Number></Dial><Dial><Number>15671234567</Number></Dial></Response>",
+                  sw.toString());
+
+      }
+      catch (Exception e)
+      {
+         e.printStackTrace();
+      }
+   }
+
+   @Test
    public void simultaneousDialing()
    {
       try
@@ -103,6 +161,36 @@ public class DialTest
          // output pretty printed
          jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, false);
 
+         jaxbMarshaller.marshal(response, sw);
+         Assert.assertEquals(
+                  "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><Response><Dial><Number>15671234567</Number><User>sip:alice1234@phone.plivo.com</User><User>sip:john1234@phone.plivo.com</User></Dial></Response>",
+                  sw.toString());
+
+      }
+      catch (Exception e)
+      {
+         e.printStackTrace();
+      }
+   }
+
+   @Test
+   public void simultaneousDialingFluent()
+   {
+      try
+      {
+         Response response = new Response();
+         response.newDial()
+                  .user("sip:alice1234@phone.plivo.com")
+                  .user("sip:john1234@phone.plivo.com")
+                  .number("15671234567");
+
+         StringWriter sw = new StringWriter();
+         JAXBContext jaxbContext = JAXBContext.newInstance(Response.class);
+         Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+
+         // output pretty printed
+         jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, false);
+         jaxbMarshaller.marshal(response, System.out);
          jaxbMarshaller.marshal(response, sw);
          Assert.assertEquals(
                   "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><Response><Dial><Number>15671234567</Number><User>sip:alice1234@phone.plivo.com</User><User>sip:john1234@phone.plivo.com</User></Dial></Response>",

@@ -31,6 +31,8 @@ public class PreAnswerTest
 
          // output pretty printed
          jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, false);
+         jaxbMarshaller.marshal(response, System.out);
+         System.out.println();
          jaxbMarshaller.marshal(response, sw);
          Assert.assertEquals(
                   "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><Response><PreAnswer><Speak>This call will cost you $2 a minute.</Speak></PreAnswer><Speak>Hey, thanks for dropping by.</Speak></Response>",
@@ -42,4 +44,28 @@ public class PreAnswerTest
       }
    }
 
+   @Test
+   public void notifyCallersFluent()
+   {
+      try
+      {
+         StringWriter sw = new StringWriter();
+         Response response = new Response().preAnswer().speak("Hey, thanks for dropping by.");
+         response.preAnswer.speak("This call will cost you $2 a minute.");
+         JAXBContext jaxbContext = JAXBContext.newInstance(Response.class);
+         Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+         jaxbMarshaller.setProperty(Marshaller.JAXB_FRAGMENT, Boolean.FALSE);
+         jaxbMarshaller.marshal(response, System.out);
+         // output pretty printed
+         jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, false);
+         jaxbMarshaller.marshal(response, sw);
+         Assert.assertEquals(
+                  "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><Response><PreAnswer><Speak>This call will cost you $2 a minute.</Speak></PreAnswer><Speak>Hey, thanks for dropping by.</Speak></Response>",
+                  sw.toString());
+      }
+      catch (JAXBException e)
+      {
+         e.printStackTrace();
+      }
+   }
 }

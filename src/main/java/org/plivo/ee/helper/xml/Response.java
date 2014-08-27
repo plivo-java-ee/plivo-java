@@ -72,16 +72,6 @@ public class Response
    @XmlElement(name = "Dial")
    public List<Dial> dials;
 
-   public Response dial(Dial dial)
-   {
-      if (dials == null)
-      {
-         dials = new ArrayList<>();
-      }
-      dials.add(dial);
-      return this;
-   }
-
    @XmlElement(name = "Conference")
    public Conference conference;
 
@@ -114,5 +104,181 @@ public class Response
 
    @XmlElement(name = "DTMF")
    public Dtmf dtmf;
+
+   public Response conference()
+   {
+      this.conference = new Conference();
+      return this;
+   }
+
+   public Conference newConference()
+   {
+      return conference().conference;
+   }
+
+   public Response getDigits()
+   {
+      this.getDigits = new GetDigits();
+      return this;
+   }
+
+   public GetDigits newGetDigits()
+   {
+      return getDigits().getDigits;
+   }
+
+   public Response hangUp()
+   {
+      this.hangUp = new HangUp();
+      return this;
+   }
+
+   public HangUp newHangUp()
+   {
+      return hangUp().hangUp;
+   }
+
+   public Response message()
+   {
+      this.message = new Message();
+      return this;
+   }
+
+   public Message newMessage()
+   {
+      return message().message;
+   }
+
+   public Response play()
+   {
+      this.play = new Play();
+      return this;
+   }
+
+   public Response play(String value)
+   {
+      return play(value);
+   }
+
+   public Play newPlay()
+   {
+      return play().play;
+   }
+
+   public Play newPlay(String value)
+   {
+      return play(value).play;
+   }
+
+   public Response preAnswer()
+   {
+      this.preAnswer = new PreAnswer();
+      return this;
+   }
+
+   public PreAnswer newPreAnswer()
+   {
+      return preAnswer().preAnswer;
+   }
+
+   public Response record()
+   {
+      this.record = new Record();
+      return this;
+   }
+
+   public Record newRecord()
+   {
+      return record().record;
+   }
+
+   public Response dial(Dial dial)
+   {
+      if (dials == null)
+      {
+         dials = new ArrayList<>();
+      }
+      dials.add(dial);
+      return this;
+   }
+
+   public List<Dial> addDial(Dial dial)
+   {
+      return dial(dial).dials;
+   }
+
+   public Dial newDial()
+   {
+      Dial dial = new Dial();
+      dial(dial);
+      return dial;
+   }
+
+   public Response redirect()
+   {
+      this.redirect = new Redirect();
+      return this;
+   }
+
+   public Redirect newRedirect()
+   {
+      return redirect().redirect;
+   }
+
+   public Response speak()
+   {
+      this.speak = new Speak();
+      return this;
+   }
+
+   public Response speak(String value)
+   {
+      this.speak = new Speak(value);
+      return this;
+   }
+
+   public Speak newSpeak()
+   {
+      return speak().speak;
+   }
+
+   public Speak newSpeak(String value)
+   {
+      return speak(value).speak;
+   }
+
+   public Response _wait()
+   {
+      this.wait = new Wait();
+      return this;
+   }
+
+   public Wait newWait()
+   {
+      this.wait = new Wait();
+      return this.wait;
+   }
+
+   public Response dtmf()
+   {
+      this.dtmf = new Dtmf();
+      return this;
+   }
+
+   public Dtmf newDtmf()
+   {
+      return dtmf().dtmf;
+   }
+
+   public Response dtmf(String value)
+   {
+      this.dtmf = new Dtmf(value);
+      return this;
+   }
+
+   public Dtmf newDtmf(String value)
+   {
+      return dtmf(value).dtmf;
+   }
 
 }
