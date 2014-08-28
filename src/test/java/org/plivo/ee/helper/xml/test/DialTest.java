@@ -108,6 +108,7 @@ public class DialTest
       catch (Exception e)
       {
          e.printStackTrace();
+         Assert.fail(e.getMessage());
       }
    }
 
@@ -136,6 +137,7 @@ public class DialTest
       catch (Exception e)
       {
          e.printStackTrace();
+         Assert.fail(e.getMessage());
       }
    }
 
@@ -170,6 +172,7 @@ public class DialTest
       catch (Exception e)
       {
          e.printStackTrace();
+         Assert.fail(e.getMessage());
       }
    }
 
@@ -200,6 +203,7 @@ public class DialTest
       catch (Exception e)
       {
          e.printStackTrace();
+         Assert.fail(e.getMessage());
       }
    }
 

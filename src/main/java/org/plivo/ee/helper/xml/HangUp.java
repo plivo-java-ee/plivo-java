@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.plivo.ee.helper.xml.type.Reason;
 
-@XmlRootElement(name = "HangUp")
+@XmlRootElement(name = "Hangup")
 public class HangUp
 {
 

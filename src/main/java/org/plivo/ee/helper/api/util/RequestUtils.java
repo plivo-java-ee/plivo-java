@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.ws.rs.ClientErrorException;
 import javax.ws.rs.HttpMethod;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.Entity;
@@ -15,13 +16,14 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 public class RequestUtils
 {
    private static Logger logger = Logger.getLogger(RequestUtils.class.getName());
 
    public static <T> T submit(Client client, RequestTemplate requestTemplate,
-            Map<String, String> params, Class<T> clazz) throws ResponseException
+            Map<String, String> params, Class<T> clazz) throws ClientErrorException
    {
       Response response = submit(client, requestTemplate, params);
       if (response == null)
@@ -32,8 +34,7 @@ public class RequestUtils
       {
          logger.log(Level.SEVERE, response.getStatusInfo() == null ? "no status info"
                   : response.getStatusInfo().getReasonPhrase());
-         throw new ResponseException(response.getStatus(), response.getStatusInfo() == null ? null : response
-                  .getStatusInfo().getReasonPhrase());
+         throw new ClientErrorException(response);
       }
       try
       {
@@ -42,8 +43,7 @@ public class RequestUtils
       catch (Exception e)
       {
          logger.log(Level.SEVERE, e.getMessage(), e);
-         throw new ResponseException(response.getStatus(), response.getStatusInfo() == null ? null : response
-                  .getStatusInfo().getReasonPhrase(), e);
+         throw new ClientErrorException(response);
       }
       finally
       {
@@ -53,7 +53,7 @@ public class RequestUtils
 
    public static Response submit(Client client,
             RequestTemplate requestTemplate,
-            Map<String, String> params) throws ResponseException
+            Map<String, String> params) throws ClientErrorException
    {
       try
       {
@@ -61,7 +61,7 @@ public class RequestUtils
                   .path(requestTemplate.getPathTemplate());
          return submit(webTarget, requestTemplate, params);
       }
-      catch (ResponseException re)
+      catch (ClientErrorException re)
       {
          throw (re);
       }
@@ -75,7 +75,7 @@ public class RequestUtils
 
    public static Response submit(WebTarget webTarget,
             RequestTemplate requestTemplate,
-            Map<String, ? extends Object> params) throws ResponseException
+            Map<String, ? extends Object> params) throws ClientErrorException
    {
       Response response = null;
       try
@@ -149,7 +149,7 @@ public class RequestUtils
       catch (Exception e)
       {
          logger.log(Level.SEVERE, e.getMessage(), e);
-         throw new ResponseException(e);
+         throw new ClientErrorException(e.getMessage(), Status.INTERNAL_SERVER_ERROR, e);
       }
    }
 

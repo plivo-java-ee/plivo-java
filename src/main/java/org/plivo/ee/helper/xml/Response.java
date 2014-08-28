@@ -78,7 +78,7 @@ public class Response
    @XmlElement(name = "GetDigits")
    public GetDigits getDigits;
 
-   @XmlElement(name = "HangUp")
+   @XmlElement(name = "Hangup")
    public HangUp hangUp;
 
    @XmlElement(name = "Message")

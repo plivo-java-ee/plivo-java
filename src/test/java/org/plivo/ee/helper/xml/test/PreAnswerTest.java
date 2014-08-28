@@ -41,6 +41,7 @@ public class PreAnswerTest
       catch (JAXBException e)
       {
          e.printStackTrace();
+         Assert.fail(e.getMessage());
       }
    }
 
@@ -66,6 +67,7 @@ public class PreAnswerTest
       catch (JAXBException e)
       {
          e.printStackTrace();
+         Assert.fail(e.getMessage());
       }
    }
 }

@@ -48,6 +48,7 @@ public class XmlTest
       catch (JAXBException e)
       {
          e.printStackTrace();
+         Assert.fail(e.getMessage());
       }
    }
 
@@ -87,6 +88,7 @@ public class XmlTest
       catch (JAXBException e)
       {
          e.printStackTrace();
+         Assert.fail(e.getMessage());
       }
    }
 
@@ -117,6 +119,7 @@ public class XmlTest
       catch (JAXBException e)
       {
          e.printStackTrace();
+         Assert.fail(e.getMessage());
       }
    }
 
@@ -143,6 +146,7 @@ public class XmlTest
       catch (Exception e)
       {
          e.printStackTrace();
+         Assert.fail(e.getMessage());
       }
    }
 
@@ -171,6 +175,7 @@ public class XmlTest
       catch (Exception e)
       {
          e.printStackTrace();
+         Assert.fail(e.getMessage());
       }
    }
 
@@ -201,6 +206,7 @@ public class XmlTest
       catch (Exception e)
       {
          e.printStackTrace();
+         Assert.fail(e.getMessage());
       }
    }
 
@@ -236,6 +242,7 @@ public class XmlTest
       catch (Exception e)
       {
          e.printStackTrace();
+         Assert.fail(e.getMessage());
       }
    }
 
@@ -270,6 +277,7 @@ public class XmlTest
       catch (Exception e)
       {
          e.printStackTrace();
+         Assert.fail(e.getMessage());
       }
    }
 
@@ -300,6 +308,7 @@ public class XmlTest
       catch (Exception e)
       {
          e.printStackTrace();
+         Assert.fail(e.getMessage());
       }
    }
 }
