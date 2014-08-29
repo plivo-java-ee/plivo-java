@@ -100,7 +100,7 @@ public class GlobalConstant
    public static final String URLS = "urls";
    public static final String LENGHT = "length";
 
-   public static final String URL = "URL";
+   public static final String URL = "url";
 
    public static final String ENABLED = "enabled";
    public static final String CONFERENCE_NAME = "conference_name";

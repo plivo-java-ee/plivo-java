@@ -21,6 +21,8 @@ import org.plivo.ee.helper.xml.User;
 import org.plivo.ee.helper.xml.type.MessageType;
 import org.plivo.ee.helper.xml.type.Method;
 
+import com.sun.xml.bind.marshaller.DumbEscapeHandler;
+
 public class XmlTest
 {
 
@@ -298,6 +300,8 @@ public class XmlTest
 
          // output pretty printed
          jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, false);
+         jaxbMarshaller
+                  .setProperty("com.sun.xml.bind.marshaller.CharacterEscapeHandler", DumbEscapeHandler.theInstance);
 
          jaxbMarshaller.marshal(response, sw);
          Assert.assertEquals(

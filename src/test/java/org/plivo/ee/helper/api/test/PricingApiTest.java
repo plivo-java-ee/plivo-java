@@ -21,7 +21,7 @@ public class PricingApiTest extends AbstractTest
       {
          Map<String, String> parameters = new HashMap<>();
          parameters.put(GlobalConstant.AUTH_ID, auth_id);
-         parameters.put(GlobalConstant.COUNTRY_ISO, "FR");
+         parameters.put(GlobalConstant.COUNTRY_ISO, "IT");
          PricingApi pricingApi = new PricingApi(client);
          Price result = pricingApi.getPricingForCountry(parameters);
          Assert.assertNotNull(result);
